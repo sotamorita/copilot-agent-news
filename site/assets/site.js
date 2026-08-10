@@ -9,6 +9,7 @@
   var input = document.getElementById('q');
   var countEl = document.getElementById('result-count');
   var emptyEl = document.getElementById('empty');
+  var hintEl = document.getElementById('hint');
   var items = Array.prototype.slice.call(list.querySelectorAll('.card'));
 
   var activeCats = new Set();
@@ -50,9 +51,15 @@
   function apply() {
     var q = input ? input.value : '';
     var words = terms(q);
+    var hasFilter = activeCats.size > 0 || activeTags.size > 0;
+    var idle = words.length === 0 && !hasFilter;
     var shown = 0;
 
     items.forEach(function (el) {
+      if (idle) {
+        el.hidden = true;
+        return;
+      }
       var hay = el.dataset.search || '';
       var cat = el.dataset.category || '';
       var tags = (el.dataset.tags || '').split('|').filter(Boolean);
@@ -70,12 +77,14 @@
     });
 
     if (countEl) {
-      countEl.textContent =
-        shown === items.length
+      countEl.textContent = idle
+        ? '全 ' + items.length + ' 件から検索できます'
+        : shown === items.length
           ? '全 ' + items.length + ' 件'
           : shown + ' 件 / 全 ' + items.length + ' 件';
     }
-    if (emptyEl) emptyEl.hidden = shown !== 0;
+    if (hintEl) hintEl.hidden = !idle;
+    if (emptyEl) emptyEl.hidden = idle || shown !== 0;
     syncUrl(q);
   }
 

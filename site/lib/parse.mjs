@@ -167,7 +167,7 @@ export function parseReport(html, meta) {
 
   return {
     ...meta,
-    title: titleMatch ? stripTags(titleMatch[1]) : `Copilotエージェント関連ニュース ${meta.labelJa}`,
+    title: titleMatch ? stripTags(titleMatch[1]) : `Copilotエージェントニュース ${meta.labelJa}`,
     notice: noticeMatch ? stripTags(noticeMatch[1]) : '',
     sourcesCount: sourcesCount ? Number(sourcesCount) : null,
     items,

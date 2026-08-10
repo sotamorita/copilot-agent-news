@@ -21,15 +21,16 @@ export function prefix(depth) {
   return depth === 0 ? '' : '../'.repeat(depth);
 }
 
+/** トップページでは現在地を示すため非リンクのテキストに、それ以外のページではホームへのリンクにする。 */
 export function nav(depth, active) {
   const p = prefix(depth);
-  const link = (href, label, key) =>
-    `<a href="${p}${href}"${active === key ? ' aria-current="page"' : ''}>${label}</a>`;
+  const brand =
+    active === 'index'
+      ? `<span class="brand" aria-current="page">Copilotエージェントニュース</span>`
+      : `<a class="brand" href="${p}index.html">Copilotエージェントニュース</a>`;
   return `<nav class="site-nav">
   <div class="inner">
-    <a class="brand" href="${p}index.html">Copilotエージェントニュース</a>
-    ${link('index.html', 'ニュース一覧', 'index')}
-    ${link('archive.html', 'アーカイブ', 'archive')}
+    ${brand}
   </div>
 </nav>`;
 }
@@ -59,7 +60,7 @@ export function footer(generatedAt, depth = 0) {
   const p = prefix(depth);
   return `<footer>
   Agent Builder / Copilot Studio / Copilot Cowork の最新動向を定期収集しています。<br>
-  <a href="${p}index.html">ニュース一覧</a>｜<a href="${p}archive.html">アーカイブ</a>｜サイト更新: ${esc(generatedAt)}<br>
+  <a href="${p}index.html">トップ</a>｜<a href="${p}archive.html">アーカイブ</a>｜サイト更新: ${esc(generatedAt)}<br>
   各リンクは掲載時点で有効性を確認していますが、必ず遷移先で最新情報をご確認ください。
 </footer>`;
 }
@@ -173,13 +174,15 @@ export function renderIndex({ items, reports, tags, generatedAt }) {
     </div>
   </div>
 
-  <div class="result-count" id="result-count">全 ${items.length} 件</div>
+  <div class="result-count" id="result-count">全 ${items.length} 件から検索できます</div>
+
+  <div class="placeholder" id="hint">検索キーワードを入力するか、上のカテゴリ・タグを選ぶと記事が表示されます。</div>
 
   <div id="news-list">
 ${items.map((i) => newsCard(i, 0)).join('\n')}
   </div>
 
-  <div class="empty" id="empty" hidden>該当するニュースが見つかりませんでした。キーワードや絞り込みを変えてお試しください。</div>
+  <div class="placeholder" id="empty" hidden>該当するニュースが見つかりませんでした。キーワードや絞り込みを変えてお試しください。</div>
 
 </div>
 
@@ -188,7 +191,7 @@ ${footer(generatedAt, 0)}`;
   return layout({
     title: 'Copilotエージェントニュース｜Agent Builder / Copilot Studio / Copilot Cowork 最新動向',
     description:
-      'Agent Builder・Copilot Studio・Copilot Cowork 関連ニュースの一覧と検索。定期収集したレポートをタグ・カテゴリで絞り込めます。',
+      'Agent Builder・Copilot Studio・Copilot Cowork の最新ニュースの一覧と検索。定期収集したレポートをタグ・カテゴリで絞り込めます。',
     depth: 0,
     active: 'index',
     body,
@@ -245,7 +248,7 @@ ${footer(generatedAt, 0)}`;
 
   return layout({
     title: 'アーカイブ｜Copilotエージェントニュース',
-    description: '過去に作成したCopilotエージェント関連ニュースレポートの一覧。',
+    description: '過去に作成したCopilotエージェントニュースレポートの一覧。',
     depth: 0,
     active: 'archive',
     body,
