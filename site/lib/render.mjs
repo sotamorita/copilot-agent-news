@@ -274,10 +274,16 @@ export function rewriteReport(html, { depth, items }) {
   // 上部にサイトナビを差し込む
   out = out.replace(/<body[^>]*>/i, (m) => `${m}\n${nav(depth, '')}`);
 
+  // トップページと見出しが同文言で紛らわしいため、h1の直前に「レポート」バッジを差し込む
+  out = out.replace(
+    /<h1\b([^>]*)>/i,
+    '<div class="report-kicker"><span class="badge">日次レポート</span></div>\n  <h1$1>',
+  );
+
   // フッターに一覧への導線を追加
   out = out.replace(
     /<\/footer>/i,
-    `<br><a href="${p}index.html">ニュース一覧へ戻る</a>｜<a href="${p}archive.html">アーカイブ</a>\n</footer>`,
+    `<br><a href="${p}index.html">トップへ戻る</a>｜<a href="${p}archive.html">アーカイブ</a>\n</footer>`,
   );
 
   // カードにタグ行を差し込む（タイトル一致で対応付け）

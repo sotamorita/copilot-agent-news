@@ -93,7 +93,12 @@ header p.lead {
 
 /* .inner を持たない旧世代レポートでも中央寄せ幅を揃える */
 header > h1,
-header > p { max-width: 720px; margin-left: auto; margin-right: auto; }
+header > p,
+header > .report-kicker { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+/* トップページのH1と同文言になるレポートページの見出しに、区別用バッジを添える */
+.report-kicker { margin-bottom: 10px; }
+.report-kicker .badge { margin-right: 0; }
 
 .container { max-width: 720px; margin: 0 auto; padding: 0 20px 60px; }
 
@@ -113,9 +118,15 @@ header > p { max-width: 720px; margin-left: auto; margin-right: auto; }
   text-decoration: none;
   color: var(--text);
 }
-.hero-card.primary { border-left: 3px solid var(--accent); }
+/* primary（最新レポート）は塗りで強調、secondary（アーカイブ）はアウトラインのまま控えめに */
+.hero-card.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+.hero-card.primary:hover { background: #163a63; border-color: #163a63; }
 .hero-card.secondary { border-left: 3px solid var(--cat-case); }
-.hero-card:hover { border-color: var(--accent); }
+.hero-card.secondary:hover { border-color: var(--cat-case); }
 .hero-card .hero-label {
   font-size: 11px;
   font-weight: 700;
@@ -124,6 +135,7 @@ header > p { max-width: 720px; margin-left: auto; margin-right: auto; }
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+.hero-card.primary .hero-label { color: #9FC1E8; }
 .hero-card.secondary .hero-label { color: var(--cat-case); }
 .hero-card .hero-title {
   font-size: 15.5px;
@@ -142,11 +154,13 @@ header > p { max-width: 720px; margin-left: auto; margin-right: auto; }
   color: var(--sub);
   margin-bottom: 14px;
 }
+.hero-card.primary .hero-meta { color: #C7D2E0; }
 .hero-card .hero-cta {
   font-size: 12.5px;
   font-weight: 700;
   color: var(--accent);
 }
+.hero-card.primary .hero-cta { color: #FFFFFF; }
 .hero-card.secondary .hero-cta { color: var(--cat-case); }
 
 @media (max-width: 560px) {
