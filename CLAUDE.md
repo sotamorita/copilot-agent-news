@@ -1,0 +1,234 @@
+# CLAUDE.md（Copilotエージェントニュース フォルダ用）
+
+## 目的
+Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
+定期収集・HTML化して蓄積するフォルダ。
+
+## 運用ルール
+- 新規ファイルは `yyyy/mm/` 配下に格納する
+- ファイル名は `Copilotエージェントニュース_yyyymmdd_hhmm.html` 形式
+- 過去24時間以内の情報を優先し、前回ファイルの内容と重複するニュースは載せない
+  （新規作成前に同月フォルダ内の最新ファイルを確認し、差分のみ掲載）
+- 各ニュース要約は1〜2行程度に留め、詳細は元ソースリンクで確認する前提とする
+- リンク切れ・古いURLは掲載しない
+- **各記事カードには `data-tags` 属性でタグを付ける**（後述「タグ仕様」）
+- ニュースHTMLを追加したら `git add` → `commit` → `push`。
+  GitHub Actions が自動でサイトを再ビルドして GitHub Pages へ公開する（後述「公開サイト」）
+
+## フォルダ構成
+```
+copilot-agent-news/
+  2026/08/Copilotエージェントニュース_20260810_0930.html  ← ニュース本体（原本）
+  site/                 ← サイト生成スクリプト（build.mjs / lib / assets）
+  .github/workflows/    ← GitHub Pages への自動デプロイ
+  _site/                ← ビルド成果物。gitignore 済み・直接編集しない
+```
+
+---
+
+# タグ仕様
+
+## 付け方
+記事カードの `<div class="card">` に `data-tags` 属性を付与する。カンマ区切り、**3〜5個**が目安。
+
+```html
+<div class="card" data-tags="Copilot Studio,自律型エージェント,プレビュー">
+```
+
+- `data-tags` を書き忘れても、サイト生成時にタイトル・要約からキーワード自動推定される
+  （`site/lib/tags.mjs` の `RULES`）。ただし精度が落ちるので必ず明示すること
+- 明示タグと自動推定タグはマージされる。表示は最大6個
+
+## タグ語彙（この中から選ぶ。増やす場合は `site/lib/tags.mjs` にも追加）
+| 種類 | タグ |
+|---|---|
+| 製品・技術 | `Copilot Studio` / `Agent Builder` / `Copilot Cowork` / `M365 Copilot` / `Agent Framework` / `SharePoint` / `Teams` / `Power Platform` / `Azure` / `MCP` |
+| 機能・テーマ | `自律型エージェント` / `ワークフロー` / `ガバナンス` / `ライセンス` / `開発者向け` |
+| 提供状況 | `ロードマップ` / `プレビュー` / `一般提供` |
+| 情報の種類 | `セミナー` / `導入事例` / `調査レポート` |
+
+カテゴリ（新機能／事例／イベント）はセクション見出しから自動判定されるため、タグに重ねて書かなくてよい。
+
+---
+
+# 公開サイト
+
+`site/build.mjs` が `yyyy/mm/*.html` を読んで `_site/` に一覧サイトを生成する（依存パッケージなし）。
+
+```bash
+node site/build.mjs                       # ビルド
+cd _site && python3 -m http.server 8000   # ローカル確認
+```
+
+生成物：
+
+| ファイル | 内容 |
+|---|---|
+| `_site/index.html` | 全記事の一覧。全文検索＋カテゴリ／タグ絞り込み（JSはビルド不要の素のJS） |
+| `_site/archive.html` | 年月別のレポート一覧 |
+| `_site/news/yyyy/mm/yyyymmdd-hhmm.html` | 各レポート。共通CSSとナビを注入して再出力（原本は変更しない） |
+| `_site/search-index.json` | 記事データのJSON |
+
+- レポートは原本をそのまま複製せず、独自 `<style>` を外して `assets/site.css` に差し替える。
+  これにより過去の異なるデザインのレポートも本デザインシステムに統一される
+- スタイルを直す場合は各ニュースHTMLではなく `site/assets/site.css` を編集する
+- `main` への push で `.github/workflows/deploy.yml` が実行され、Pages へ自動デプロイされる
+
+---
+
+# デザインシステム（HTML出力共通仕様）
+
+## コンセプト
+Microsoft製品カラーの模倣ではなく「専門ニュースメディアの紙面」を模す。
+信頼性・一次情報への導線・スキャン読み（見出しだけで要点が掴める）を最優先。
+
+---
+
+## 1. タイポグラフィ（最重要）
+
+### 方針：ゴシック体（サンセリフ）に統一
+見出し・本文・メタ情報すべてを**サンセリフで統一**する。明朝体は使用しない
+（明朝とゴシックの混植は「新聞らしさ」ではなく「フォント選定ミス」に見えるため廃止）。
+ウェイトの強弱のみで階層をつける。
+
+### フォントスタック
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+```
+
+```css
+/* 全要素で共通使用。和欧混植：欧文Inter／和文Noto Sans JP */
+--font-sans: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+             "Yu Gothic Medium", "Meiryo", sans-serif;
+
+/* 数字・日付：桁揃えのため等幅数字 */
+--font-num: "Inter", "SF Mono", "Roboto Mono", monospace;
+
+/* 全要素にこれを適用し、フォント指定のブレをなくす */
+* { font-family: var(--font-sans); }
+```
+
+### 日本語組版の必須指定
+```css
+body {
+  font-feature-settings: "palt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+h1, h2, h3 { letter-spacing: -0.01em; font-feature-settings: "palt" 1; }
+.meta, .date, time { font-variant-numeric: tabular-nums; font-family: var(--font-num); }
+```
+
+### 階層とウェイト（すべてsansで統一）
+| 要素 | サイズ | ウェイト | 行間 |
+|---|---|---|---|
+| サイトタイトル(h1) | 26px | **800** | 1.35 |
+| セクション見出し(h2) | 15px | **700** | 1.4 / 字間0.08em / 英大文字ラベル併記 |
+| 記事タイトル(h3) | 17px | **700** | 1.55 |
+| 本文・要約 | 14.5px | **400** | 1.9 |
+| メタ情報（タグ・日付） | 11.5px | **600** | 1.5 |
+| カテゴリタグ文字 | 11px | **700** | 1.2 / 字間0.04em |
+
+- 使用ウェイトは **400 / 600 / 700 / 800 の4段のみ**。500など中途半端な太さは使わない
+- 和文本文の行間は1.8〜2.0を厳守
+- 1行の文字数は全角40字程度（`max-width: 720px`）
+
+---
+
+## 2. カラーパレット
+| 用途 | コード |
+|---|---|
+| 背景（本体） | `#F7F6F3` |
+| 背景（カード） | `#FFFFFF` |
+| メインテキスト | `#16181D` |
+| サブ・メタ | `#6E7178` |
+| 罫線 | `#E3E1DC` |
+| アクセント（紺） | `#0F2A4A` |
+| カテゴリ：新機能 | `#0F2A4A`（紺） |
+| カテゴリ：事例 | `#1E5C3A`（深緑） |
+| カテゴリ：イベント | `#8A4B08`（琥珀） |
+| 注記帯 | 背景 `#FDF8EC` / 文字 `#7A4508` |
+
+※ Microsoft公式ブランドカラー（`#0078D4` 等）は使用しない。
+
+---
+
+## 3. レイアウト原則（カード余白を明確化）
+
+### カード内余白（必須・厳守）
+```css
+.card {
+  padding: 24px 28px;        /* 上下24px・左右28px。狭めると窮屈に見えるため厳守 */
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  background: #FFFFFF;
+}
+.card .meta { margin-bottom: 10px; }     /* タグ・日付とタイトルの間 */
+.card h3    { margin: 0 0 12px; }        /* タイトルと本文の間 */
+.card p     { margin: 0 0 16px; }        /* 本文とリンクボタンの間 */
+```
+- カード同士の間隔（縦）：**20px以上**
+- カード内の要素間（タグ→タイトル→本文→リンク）は必ず上記の余白を空け、詰めない
+- カテゴリタグ（アウトラインバッジ）とメタ日時の間は `8px` 空ける
+
+### その他レイアウト原則
+- コンテンツ幅は `max-width: 720px`、中央寄せ
+- 影（box-shadow）は使わず罫線のみで分離
+- カテゴリタグは塗りバッジではなくアウトライン枠＋英字小文字ラベル
+- 記事タイトルの**上**に出典・日時を小さく配置
+- 見出しはホバー時のみ下線。過度なアニメーションは付けない
+- 外部リンクは「元記事を読む ↗」で統一
+- ヘッダーはグラデーションを使わず、単色 or 白背景＋下罫線
+
+---
+
+## 4. 全ソース一覧セクションの表示仕様（末尾配置）
+
+### マークアップ
+- ネイティブの `<details>` / `<summary>` を使用（JS不使用）
+- 初期状態は閉じた状態
+- `<summary>` の文言例：`▸ 今回の検索でヒットした全ソース一覧（42件）`
+  （この件数は本文掲載数ではなく、検索でヒットした全URL数を指す）
+
+### スタイル
+```css
+details.sources {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #FFFFFF;
+  margin-top: 48px;
+  font-family: var(--font-sans);   /* ここもゴシックで統一 */
+}
+details.sources summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent);
+  list-style: none;
+  user-select: none;
+}
+details.sources summary::-webkit-details-marker { display: none; }
+details.sources[open] summary { border-bottom: 1px solid var(--border); }
+details.sources .group-title {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--sub); padding: 16px 18px 6px;
+}
+details.sources li { font-size: 12.5px; line-height: 1.7; font-weight: 400; }
+details.sources .date { color: var(--sub); font-variant-numeric: tabular-nums; }
+details.sources a { color: var(--accent); word-break: break-all; }
+```
+
+### 表示ルール
+- 種類ごとに小見出し（英字ラベル＋和文）で区切る
+- 各行は「`日付` ｜ `媒体名` ｜ タイトル（リンク）」の1行構成
+- 本文採用済みの項目には小さなマークを付ける
+- URLは全文表示せずタイトルにリンクを張る

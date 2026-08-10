@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilotエージェント関連ニュース - 2026年8月10日（12:09更新）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F3;
+    --card-bg: #FFFFFF;
+    --text: #16181D;
+    --text-muted: #6E7178;
+    --border: #E3E1DC;
+    --accent: #0F2A4A;
+    --cat-feature: #0F2A4A;
+    --cat-case: #1E5C3A;
+    --cat-event: #8A4B08;
+    --notice-bg: #FDF8EC;
+    --notice-text: #7A4508;
+
+    --font-sans: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Meiryo", sans-serif;
+    --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --font-num: "Inter", "SF Mono", "Roboto Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 14.5px;
+    font-feature-settings: "palt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  h1, h2, h3 { letter-spacing: -0.01em; font-feature-settings: "palt" 1; }
+  .meta, time { font-variant-numeric: tabular-nums; font-family: var(--font-num); }
+
+  header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 20px 24px;
+  }
+  header .inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.35;
+    font-family: var(--font-serif);
+    color: var(--text);
+  }
+  header p.lead {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-num);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-text);
+    border: 1px solid #EBD9A0;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin: 24px 0;
+  }
+
+  section.category {
+    margin-top: 40px;
+  }
+  section.category > h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 2px;
+    margin: 0 0 20px;
+  }
+  section.category > h2 .en {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--cat-feature);
+    color: var(--cat-feature);
+    font-size: 10.5px;
+    font-weight: 500;
+    padding: 1px 8px;
+    letter-spacing: 0.04em;
+    margin-right: 8px;
+    text-transform: lowercase;
+  }
+  .badge.case { border-color: var(--cat-case); color: var(--cat-case); }
+  .badge.event { border-color: var(--cat-event); color: var(--cat-event); }
+
+  .card {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 24px;
+    margin-bottom: 24px;
+  }
+  .card:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .card .meta {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.55;
+  }
+  .card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .card h3 a:hover { text-decoration: underline; }
+  .card p {
+    margin: 0 0 12px;
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+  .card .link-row a {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .card .link-row a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>Copilotエージェント関連ニュース</h1>
+    <p class="lead">Agent Builder / Copilot Studio / Copilot Cowork 最新動向｜2026年8月10日 12:09時点</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    本日11:44・11:56に作成済みの前回レポートと重複する内容（新ハーネス、自律型エージェントの実行専用共有、SharePoint連携、Info-Tech社調査、既報のハンズオンセミナー2件）は掲載していません。今回は直近の追加調査で新たに確認できた項目のみを掲載しています。過去24時間以内の一次情報が限られていたため、対象期間を直近1〜2週間程度まで拡大しています。
+  </div>
+
+  <section class="category" id="updates">
+    <h2>① 最新機能リリース・アップデート<span class="en">Product Updates</span></h2>
+
+    <div class="card">
+      <div class="meta"><span class="badge">動画解説／Microsoft社員</span>YouTube「Copilot Just Changed Again」／2026年8月更新分</div>
+      <h3><a href="https://www.youtube.com/watch?v=Kwl_vyftmn8" target="_blank" rel="noopener">Copilot Cowork、8月アップデートで「予定調整」機能が追加</a></h3>
+      <p>Microsoft社員による8月の全社Copilotアップデート解説動画によると、Copilot Coworkがカレンダー予定の作成・出席者の追加まで代行できるようになった。実行前にユーザーが承認するステップを挟む設計で、Word・Excel・Teams等の他アップデートと合わせて紹介されている。</p>
+      <div class="link-row"><a href="https://www.youtube.com/watch?v=Kwl_vyftmn8" target="_blank" rel="noopener">元動画を見る ↗</a></div>
+    </div>
+
+    <div class="card">
+      <div class="meta"><span class="badge">Microsoft公式資料</span>Copilot Studio ライセンスガイド／2026年8月版</div>
+      <h3><a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/bade/documents/products-and-services/en-us/ai/Microsoft-Copilot-Studio-Licensing-Guide-August-26.pdf" target="_blank" rel="noopener">Copilot Studioのライセンス・従量課金ガイド最新版が公開</a></h3>
+      <p>Copilot Creditsの消費対象・計測方法・組織でのガバナンス上の留意点を整理した公式PDFが8月版に更新。定額制から従量課金モデルへの移行が進む中、Copilot Studioで構築するエージェントのコスト計画に関する社内説明資料として活用しやすい内容。</p>
+      <div class="link-row"><a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/bade/documents/products-and-services/en-us/ai/Microsoft-Copilot-Studio-Licensing-Guide-August-26.pdf" target="_blank" rel="noopener">元資料（PDF）を読む ↗</a></div>
+    </div>
+  </section>
+
+  <section class="category" id="japan">
+    <h2>② 国内の勉強会・セミナー・講座<span class="en">Japan Events</span></h2>
+
+    <div class="card event">
+      <div class="meta"><span class="badge event">無料Webセミナー</span>テクバン株式会社／2026年8月31日・9月10日・9月24日ほか計5回開催 14:00〜14:20</div>
+      <h3><a href="https://www.techvan.co.jp/event/20260831_14webcopilotstudio/" target="_blank" rel="noopener">テクバン「Copilot Studioで加速する業務効率化とAIエージェント活用」Webセミナー</a></h3>
+      <p>DX推進担当者・情シス向けの20分間の入門セミナー。Copilot Studioの最新機能と活用事例を短時間で解説し、業務自動化・内製化の導入ステップを紹介する。Zoomウェビナー形式で法人向け、定員各回50名・参加無料。8月〜10月にかけて複数回開催。</p>
+      <div class="link-row"><a href="https://www.techvan.co.jp/event/20260831_14webcopilotstudio/" target="_blank" rel="noopener">開催案内・申込ページを見る ↗</a></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  作成日時: 2026年8月10日 12:09｜自動リサーチによるニュースまとめ（Agent Builder / Copilot Studio / Copilot Cowork）<br>
+  各リンクは掲載時点で有効性を確認していますが、必ず遷移先で最新情報をご確認ください。
+</footer>
+
+</body>
+</html>

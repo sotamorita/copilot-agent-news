@@ -1,0 +1,5 @@
+# ビルド成果物（GitHub Actions 側で生成する）
+_site/
+
+node_modules/
+.DS_Store

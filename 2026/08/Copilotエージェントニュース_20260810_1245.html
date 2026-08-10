@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilotエージェント関連ニュース - 2026年8月10日（12:45更新）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F3;
+    --card-bg: #FFFFFF;
+    --text: #16181D;
+    --sub: #6E7178;
+    --border: #E3E1DC;
+    --accent: #0F2A4A;
+    --cat-feature: #0F2A4A;
+    --cat-case: #1E5C3A;
+    --cat-event: #8A4B08;
+    --notice-bg: #FDF8EC;
+    --notice-text: #7A4508;
+
+    --font-sans: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+                 "Yu Gothic Medium", "Meiryo", sans-serif;
+    --font-num: "Inter", "SF Mono", "Roboto Mono", monospace;
+  }
+  * { box-sizing: border-box; font-family: var(--font-sans); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 14.5px;
+    font-weight: 400;
+    font-feature-settings: "palt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  h1, h2, h3 { letter-spacing: -0.01em; font-feature-settings: "palt" 1; }
+  .meta, .date, time { font-variant-numeric: tabular-nums; font-family: var(--font-num); }
+
+  header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 20px 24px;
+  }
+  header .inner { max-width: 720px; margin: 0 auto; }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--text);
+  }
+  header p.lead {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--sub);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-num);
+  }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px 60px; }
+
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-text);
+    border: 1px solid #EBD9A0;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin: 24px 0;
+  }
+
+  section.category { margin-top: 40px; }
+  section.category > h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 2px;
+    margin: 0 0 20px;
+  }
+  section.category > h2 .en {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--sub);
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--cat-feature);
+    color: var(--cat-feature);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 8px;
+    letter-spacing: 0.04em;
+    margin-right: 8px;
+    text-transform: lowercase;
+  }
+  .badge.event { border-color: var(--cat-event); color: var(--cat-event); }
+  .badge.case { border-color: var(--cat-case); color: var(--cat-case); }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .card.event { border-left-color: var(--cat-event); }
+  .card .meta { font-size: 11.5px; font-weight: 600; color: var(--sub); margin-bottom: 10px; letter-spacing: 0.02em; }
+  .card h3 { margin: 0 0 12px; font-size: 17px; font-weight: 700; line-height: 1.55; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; }
+  .card p { margin: 0 0 16px; font-size: 14.5px; line-height: 1.9; color: var(--text); }
+  .card .link-row a {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .card .link-row a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--sub);
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+
+  details.sources {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #FFFFFF;
+    margin-top: 48px;
+  }
+  details.sources summary {
+    cursor: pointer;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--accent);
+    list-style: none;
+    user-select: none;
+  }
+  details.sources summary::-webkit-details-marker { display: none; }
+  details.sources[open] summary { border-bottom: 1px solid var(--border); }
+  details.sources .group-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--sub); padding: 16px 18px 6px;
+  }
+  details.sources ul { margin: 0; padding: 0 18px 8px; list-style: none; }
+  details.sources li { font-size: 12.5px; line-height: 1.7; font-weight: 400; padding: 3px 0; }
+  details.sources .date { color: var(--sub); font-variant-numeric: tabular-nums; }
+  details.sources a { color: var(--accent); word-break: break-all; }
+  details.sources .used { color: var(--cat-case); font-size: 10.5px; font-weight: 700; margin-left: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>Copilotエージェント関連ニュース</h1>
+    <p class="lead">Agent Builder / Copilot Studio / Copilot Cowork 最新動向｜2026年8月10日 12:45時点</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    本日11:44〜12:13に作成済みの前回4レポートと重複する内容（新ハーネス／ロードマップID 567894のRun-Only共有、SharePoint連携、Info-Tech社調査、40,000,000エージェント到達、テクバン・大塚商会（大阪）・ソフトクリエイト・Beyontの各セミナー情報等）は掲載していません。過去24時間以内の新規一次情報が極めて限られていたため、直近1〜4週間まで対象を拡大して再調査し、新たに確認できた項目のみ掲載しています。今回はいずれも小粒な更新です。
+  </div>
+
+  <section class="category" id="updates">
+    <h2>① 最新機能リリース・アップデート<span class="en">Product Updates</span></h2>
+
+    <div class="card">
+      <div class="meta"><span class="badge">公式リポジトリ</span>GitHub（microsoft/agent-framework）／2026年7月下旬</div>
+      <h3><a href="https://github.com/microsoft/agent-framework/releases" target="_blank" rel="noopener">Microsoft Agent Framework、v1.13.0をリリース　Foundryホスティング強化やセッションストア再利用に対応</a></h3>
+      <p>Agent Builder／Copilot Studioの基盤にもなる開発者向けOSS「Microsoft Agent Framework」の最新版。Foundryホスティングとレスポンス機能の強化、再利用可能なセッションストア、テレメトリ・可観測性の拡充、ワークフローのリプレイ・承認機能の強化などが含まれる。</p>
+      <div class="link-row"><a href="https://github.com/microsoft/agent-framework/releases" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+  </section>
+
+  <section class="category" id="japan">
+    <h2>② 国内の勉強会・セミナー・講座<span class="en">Japan Events</span></h2>
+
+    <div class="card event">
+      <div class="meta"><span class="badge event">ハンズオンセミナー・無料</span>株式会社大塚商会（多摩支店）／2026年8月26日(水) 10:00〜12:00・14:30〜16:30・要事前予約</div>
+      <h3><a href="https://www.otsuka-shokai.co.jp/event/region/26/0826tama/" target="_blank" rel="noopener">大塚商会、多摩支店で「Copilotハンズオンセミナー」を追加開催</a></h3>
+      <p>「Microsoft 365 Copilot」を実際に操作しながら学ぶ体験型セミナー。基本機能から業務への応用までを実機で確認できる内容で、8月26日に同一内容を2回開催（B01/B02）。定員制・事前予約制で、申込締切は各回2営業日前17:00まで。</p>
+      <div class="link-row"><a href="https://www.otsuka-shokai.co.jp/event/region/26/0826tama/" target="_blank" rel="noopener">開催案内・申込ページを見る ↗</a></div>
+    </div>
+  </section>
+
+  <details class="sources">
+    <summary>▸ 今回の検索でヒットした全ソース一覧（16件）</summary>
+
+    <div class="group-title">公式情報 — OFFICIAL（4件）</div>
+    <ul>
+      <li><span class="date">随時更新</span> ｜ GitHub（microsoft/agent-framework） ｜ <a href="https://github.com/microsoft/agent-framework/releases" target="_blank" rel="noopener">Releases · microsoft/agent-framework</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-07-20頃作成</span> ｜ Microsoft 365 Roadmap ｜ <a href="https://www.microsoft.com/microsoft-365/roadmap?id=567894" target="_blank" rel="noopener">Copilot Studio: Run-only agent sharing（ID 567894）</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new" target="_blank" rel="noopener">What's new in Copilot Studio</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features" target="_blank" rel="noopener">New and planned features for Microsoft Copilot Studio, 2026 release wave 1</a></li>
+    </ul>
+
+    <div class="group-title">ニュース・解説記事 — NEWS &amp; ANALYSIS（7件）</div>
+    <ul>
+      <li><span class="date">2026-08頃</span> ｜ Windows Forum ｜ <a href="https://windowsforum.com/threads/copilot-studio-run-only-agent-sharing-previews-august-2026.439724/" target="_blank" rel="noopener">Copilot Studio Run-Only Agent Sharing Previews August 2026</a></li>
+      <li><span class="date">2026-07-21</span> ｜ M365 Admin（handsontek） ｜ <a href="https://m365admin.handsontek.net/microsoft-copilot-studio-share-autonomous-agents-end-users-run/" target="_blank" rel="noopener">Microsoft Copilot Studio: Share Autonomous Agents to End Users (Run-Only)</a></li>
+      <li><span class="date">2026-08頃</span> ｜ Hubsite365 ｜ <a href="https://www.hubsite365.com/en-ww/crm-pages/inside-the-new-agent-and-workflow-harness-copilot-studio-updates-august-2026-eb36a7d1-fe43-4b8a-8cf8-f299a1cf44b2.htm" target="_blank" rel="noopener">Copilot Studio: Agent &amp; Workflow Update</a></li>
+      <li><span class="date">2026-07頃</span> ｜ ChatForest ｜ <a href="https://chatforest.com/builders-log/microsoft-copilot-studio-rebuilt-july-2026-orchestrator-workflow-designer-builder-guide/" target="_blank" rel="noopener">Microsoft Rebuilt Copilot Studio's Engine: New Orchestrator, Workflow Designer, Skills Markdown</a></li>
+      <li><span class="date">2026-06-16頃</span> ｜ IT Pro ｜ <a href="https://www.itpro.com/technology/artificial-intelligence/copilot-cowork-is-now-generally-available-everything-you-need-to-know-including-pricing-usage-limits-and-new-features" target="_blank" rel="noopener">Copilot Cowork is now generally available: Everything you need to know</a></li>
+      <li><span class="date">日付不明</span> ｜ cowork.tips ｜ <a href="https://www.cowork.tips/blog/copilot-cowork-whats-new" target="_blank" rel="noopener">What's New in Copilot Cowork: Multi-Model, Browser Use, Mobile, and More</a></li>
+      <li><span class="date">2026-04-06</span> ｜ Visual Studio Magazine ｜ <a href="https://visualstudiomagazine.com/articles/2026/04/06/microsoft-ships-production-ready-agent-framework-1-0-for-net-and-python.aspx" target="_blank" rel="noopener">Microsoft Ships Production-Ready Agent Framework 1.0 for .NET and Python</a></li>
+    </ul>
+
+    <div class="group-title">SNS・コミュニティ — SOCIAL &amp; COMMUNITY（1件）</div>
+    <ul>
+      <li><span class="date">2026-06-21</span> ｜ CIAOPS Blog ｜ <a href="https://blog.ciaops.com/2026/06/21/your-first-copilot-studio-agent-and-the-bits-the-demo-skips/" target="_blank" rel="noopener">Your first Copilot Studio agent — and the bits the demo skips</a></li>
+    </ul>
+
+    <div class="group-title">国内イベント・セミナー・講座 — JAPAN EVENTS（4件）</div>
+    <ul>
+      <li><span class="date">2026-08-26開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/0826tama/" target="_blank" rel="noopener">実際に操作して学ぶAI活用！Copilotハンズオンセミナー in 多摩</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-08-31開催</span> ｜ テクバン株式会社 ｜ <a href="https://www.techvan.co.jp/event/20260831_14webcopilotstudio/" target="_blank" rel="noopener">Copilot Studioで加速する業務効率化とAIエージェント活用（既出）</a></li>
+      <li><span class="date">随時開催</span> ｜ 株式会社インソース ｜ <a href="https://www.insource.co.jp/bup/bup_copilot.html" target="_blank" rel="noopener">Microsoft 365 Copilotの使い方研修</a></li>
+      <li><span class="date">随時開催</span> ｜ 株式会社インソース ｜ <a href="https://www.insource.co.jp/bup/bup_ai-agent.html" target="_blank" rel="noopener">AIエージェント基礎研修</a></li>
+    </ul>
+  </details>
+
+</div>
+
+<footer>
+  作成日時: 2026年8月10日 12:45｜自動リサーチによるニュースまとめ（Agent Builder / Copilot Studio / Copilot Cowork）<br>
+  各リンクは掲載時点で有効性を確認していますが、必ず遷移先で最新情報をご確認ください。
+</footer>
+
+</body>
+</html>

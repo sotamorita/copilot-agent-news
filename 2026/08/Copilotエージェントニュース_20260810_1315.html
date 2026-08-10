@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilotエージェント関連ニュース - 2026年8月10日（13:15更新）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F6F3;
+    --card-bg: #FFFFFF;
+    --text: #16181D;
+    --sub: #6E7178;
+    --border: #E3E1DC;
+    --accent: #0F2A4A;
+    --cat-feature: #0F2A4A;
+    --cat-case: #1E5C3A;
+    --cat-event: #8A4B08;
+    --notice-bg: #FDF8EC;
+    --notice-text: #7A4508;
+
+    --font-sans: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+                 "Yu Gothic Medium", "Meiryo", sans-serif;
+    --font-num: "Inter", "SF Mono", "Roboto Mono", monospace;
+  }
+  * { box-sizing: border-box; font-family: var(--font-sans); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.9;
+    font-size: 14.5px;
+    font-weight: 400;
+    font-feature-settings: "palt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+  h1, h2, h3 { letter-spacing: -0.01em; font-feature-settings: "palt" 1; }
+  .meta, .date, time { font-variant-numeric: tabular-nums; font-family: var(--font-num); }
+
+  header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 20px 24px;
+  }
+  header .inner { max-width: 720px; margin: 0 auto; }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--text);
+  }
+  header p.lead {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--sub);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-num);
+  }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px 60px; }
+
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-text);
+    border: 1px solid #EBD9A0;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin: 24px 0;
+  }
+
+  section.category { margin-top: 40px; }
+  section.category > h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 2px;
+    margin: 0 0 20px;
+  }
+  section.category > h2 .en {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--sub);
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    display: inline-block;
+    border: 1px solid var(--cat-feature);
+    color: var(--cat-feature);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 8px;
+    letter-spacing: 0.04em;
+    margin-right: 8px;
+    text-transform: lowercase;
+  }
+  .badge.event { border-color: var(--cat-event); color: var(--cat-event); }
+  .badge.case { border-color: var(--cat-case); color: var(--cat-case); }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .card.event { border-left-color: var(--cat-event); }
+  .card .meta { font-size: 11.5px; font-weight: 600; color: var(--sub); margin-bottom: 10px; letter-spacing: 0.02em; }
+  .card h3 { margin: 0 0 12px; font-size: 17px; font-weight: 700; line-height: 1.55; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; }
+  .card p { margin: 0 0 16px; font-size: 14.5px; line-height: 1.9; color: var(--text); }
+  .card .link-row a {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .card .link-row a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--sub);
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 44px;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+
+  details.sources {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #FFFFFF;
+    margin-top: 48px;
+  }
+  details.sources summary {
+    cursor: pointer;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--accent);
+    list-style: none;
+    user-select: none;
+  }
+  details.sources summary::-webkit-details-marker { display: none; }
+  details.sources[open] summary { border-bottom: 1px solid var(--border); }
+  details.sources .group-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--sub); padding: 16px 18px 6px;
+  }
+  details.sources ul { margin: 0; padding: 0 18px 8px; list-style: none; }
+  details.sources li { font-size: 12.5px; line-height: 1.7; font-weight: 400; padding: 3px 0; }
+  details.sources .date { color: var(--sub); font-variant-numeric: tabular-nums; }
+  details.sources a { color: var(--accent); word-break: break-all; }
+  details.sources .used { color: var(--cat-case); font-size: 10.5px; font-weight: 700; margin-left: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>Copilotエージェント関連ニュース</h1>
+    <p class="lead">Agent Builder / Copilot Studio / Copilot Cowork 最新動向｜2026年8月10日 13:15時点</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    本日11:44〜12:45に作成済みの前回5レポートと重複する内容（新ハーネス／ロードマップID 567894のRun-Only共有、SharePoint連携、Info-Tech社調査、40,000,000エージェント到達、Agent Framework v1.13.0、テクバン・大塚商会（多摩）・ソフトクリエイト・Beyontの各セミナー情報等）は掲載していません。過去24時間以内の新規一次情報が極めて限られていたため、直近1〜2週間まで対象を拡大して再調査し、新たに確認できた項目のみ掲載しています。
+  </div>
+
+  <section class="category" id="updates">
+    <h2>① 最新機能リリース・アップデート<span class="en">Product Updates</span></h2>
+
+    <div class="card">
+      <div class="meta"><span class="badge">海外メディア</span>Topedia Blog／2026年7月29日</div>
+      <h3><a href="https://blog-en.topedia.com/2026/07/computer-use-in-the-researcher-agent-has-been-retired/" target="_blank" rel="noopener">Copilot Cowork、「Computer Use」機能を統合──従量課金の対象に</a></h3>
+      <p>Researcherエージェントの「Computer Use」機能が7月1日付で廃止され、同等のWeb操作機能はCopilot Coworkのローカルブラウザ機能へ統合された。従来Copilot Premiumライセンス内で無料利用できたが、今後はCoworkの消費量ベース課金の対象となる。</p>
+      <div class="link-row"><a href="https://blog-en.topedia.com/2026/07/computer-use-in-the-researcher-agent-has-been-retired/" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card">
+      <div class="meta"><span class="badge">海外メディア</span>DevOps.com（Microsoft FY26決算説明会 発言）／2026年7月29日</div>
+      <h3><a href="https://devops.com/microsoft-confirms-copilot-super-app-is-coming-this-year-and-its-about-more-than-convenience/" target="_blank" rel="noopener">Copilot「スーパーアプリ」構想が始動──Chat・Cowork・GitHub Copilotを1本化へ</a></h3>
+      <p>Satya Nadella CEOがFY26第4四半期決算説明会で、Copilot Chat・Copilot Cowork・GitHub Copilot（コーディング）・自律エージェント「Autopilots」を「今四半期中」に単一アプリへ統合すると表明。個人向け・法人向けを横断する統合で、ライセンスや管理体制の詳細は今後発表予定。</p>
+      <div class="link-row"><a href="https://devops.com/microsoft-confirms-copilot-super-app-is-coming-this-year-and-its-about-more-than-convenience/" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+  </section>
+
+  <section class="category" id="japan">
+    <h2>② 国内の勉強会・セミナー・講座<span class="en">Japan Events</span></h2>
+
+    <div class="card event">
+      <div class="meta"><span class="badge event">ハンズオンセミナー・無料</span>株式会社大塚商会（大阪北支店）／2026年9月29日(火) 10:30〜12:00・14:00〜15:30・要事前予約</div>
+      <h3><a href="https://www.otsuka-shokai.co.jp/event/region/26/w0929osakan/?rid=00" target="_blank" rel="noopener">大塚商会、大阪で「Copilot Agent Builderハンズオンセミナー」を開催</a></h3>
+      <p>Microsoft 365 Copilotに標準搭載の「Agent Builder」を実際に操作しながらAIエージェントの作り方を学ぶ体験型セミナー。同一内容を2回開催し、定員制・事前予約制。</p>
+      <div class="link-row"><a href="https://www.otsuka-shokai.co.jp/event/region/26/w0929osakan/?rid=00" target="_blank" rel="noopener">開催案内・申込ページを見る ↗</a></div>
+    </div>
+  </section>
+
+  <details class="sources">
+    <summary>▸ 今回の検索でヒットした全ソース一覧（90件）</summary>
+
+    <div class="group-title">公式情報 — OFFICIAL（22件）</div>
+    <ul>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new" target="_blank" rel="noopener">What's new in Copilot Studio</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/planned-features" target="_blank" rel="noopener">New and planned features for Microsoft Copilot Studio, 2026 release wave 1</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes" target="_blank" rel="noopener">Release Notes for Microsoft 365 Copilot</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/whats-new" target="_blank" rel="noopener">What's new in the Copilot Studio guidance hub</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/roadmap" target="_blank" rel="noopener">Microsoft 365 Roadmap</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft 365 Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/blog/tag/copilot-cowork/" target="_blank" rel="noopener">Copilot Cowork News and Insights（タグ一覧）</a></li>
+      <li><span class="date">2026-06-16</span> ｜ Microsoft 365 Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/" target="_blank" rel="noopener">Copilot Cowork is now generally available</a></li>
+      <li><span class="date">2026-05-05</span> ｜ Microsoft 365 Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/05/05/copilot-cowork-from-conversation-to-action-across-skills-integrations-and-devices/" target="_blank" rel="noopener">Copilot Cowork: From conversation to action across skills, integrations, and devices</a></li>
+      <li><span class="date">2026-03-30</span> ｜ Microsoft 365 Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/30/copilot-cowork-now-available-in-frontier/" target="_blank" rel="noopener">Copilot Cowork: Now available in Frontier</a></li>
+      <li><span class="date">2026-03-09</span> ｜ Microsoft 365 Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/" target="_blank" rel="noopener">Copilot Cowork: A new way of getting work done</a></li>
+      <li><span class="date">2026-07頃</span> ｜ TechCommunity ｜ <a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-365-copilot--july-2026/4538332" target="_blank" rel="noopener">What's New in Microsoft 365 Copilot | July 2026</a></li>
+      <li><span class="date">2026-06頃</span> ｜ TechCommunity ｜ <a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-365-copilot--june-2026/4529572" target="_blank" rel="noopener">What's New in Microsoft 365 Copilot | June 2026</a></li>
+      <li><span class="date">2026-06-02頃</span> ｜ Microsoft Agent Framework Blog ｜ <a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026/" target="_blank" rel="noopener">Microsoft Agent Framework at BUILD 2026</a></li>
+      <li><span class="date">2026-06-02頃</span> ｜ Microsoft Agent Framework Blog ｜ <a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/" target="_blank" rel="noopener">Microsoft Agent Framework at BUILD 2026: Agent Harness, Hosted Agents, CodeAct, and more</a></li>
+      <li><span class="date">2026-06-02頃</span> ｜ Microsoft Foundry Blog ｜ <a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/" target="_blank" rel="noopener">What's new in Microsoft Foundry | Build Edition</a></li>
+      <li><span class="date">2026-06-02頃</span> ｜ Microsoft Foundry Blog ｜ <a href="https://devblogs.microsoft.com/foundry/agent-service-build2026/" target="_blank" rel="noopener">Build and run agents at scale with Microsoft Foundry at Build 2026</a></li>
+      <li><span class="date">日付不明</span> ｜ Microsoft Foundry Blog ｜ <a href="https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/" target="_blank" rel="noopener">Microsoft Agent Framework Reaches Release Candidate</a></li>
+      <li><span class="date">随時更新</span> ｜ GitHub（microsoft/agent-framework） ｜ <a href="https://github.com/microsoft/agent-framework/releases" target="_blank" rel="noopener">Releases · microsoft/agent-framework</a></li>
+      <li><span class="date">2026-06-02</span> ｜ Microsoft Security Blog ｜ <a href="https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/" target="_blank" rel="noopener">Microsoft Build 2026: Securing code, agents, and models across the development lifecycle</a></li>
+      <li><span class="date">2026-06-02</span> ｜ Official Microsoft Blog ｜ <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/" target="_blank" rel="noopener">Microsoft Build 2026: Be yourself at work</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft ｜ <a href="https://microsoft.github.io/agent-resources/develop-agents/" target="_blank" rel="noopener">Microsoft Agent Developer Resources</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-gb/microsoft-365/copilot/cowork/cowork-local-browser" target="_blank" rel="noopener">Use the local browser with Copilot Cowork</a></li>
+    </ul>
+
+    <div class="group-title">ニュース・解説記事 — NEWS &amp; ANALYSIS（32件）</div>
+    <ul>
+      <li><span class="date">2026-08頃</span> ｜ Hubsite365 ｜ <a href="https://www.hubsite365.com/en-ww/crm-pages/inside-the-new-agent-and-workflow-harness-copilot-studio-updates-august-2026-eb36a7d1-fe43-4b8a-8cf8-f299a1cf44b2.htm" target="_blank" rel="noopener">Copilot Studio: Agent &amp; Workflow Update</a></li>
+      <li><span class="date">2026-05頃</span> ｜ Redmondmag ｜ <a href="https://redmondmag.com/blogs/generationai/2026/05/whats-new-in-microsoft-copilot-studio.aspx" target="_blank" rel="noopener">What's New in Microsoft Copilot Studio</a></li>
+      <li><span class="date">2026-07頃</span> ｜ A Guide to Cloud &amp; AI ｜ <a href="https://www.aguidetocloud.com/blog/microsoft-365-copilot-july-2026-updates/" target="_blank" rel="noopener">What's New in Microsoft 365 Copilot: July 2026</a></li>
+      <li><span class="date">2026-06頃</span> ｜ A Guide to Cloud &amp; AI ｜ <a href="https://www.aguidetocloud.com/blog/microsoft-365-copilot-june-2026-updates/" target="_blank" rel="noopener">What's New in Microsoft 365 Copilot: June 2026</a></li>
+      <li><span class="date">日付不明</span> ｜ A Guide to Cloud &amp; AI ｜ <a href="https://www.aguidetocloud.com/blog/microsoft-copilot-cowork-pricing-cost-management/" target="_blank" rel="noopener">Microsoft Copilot Cowork — New 2026 Pricing Guide</a></li>
+      <li><span class="date">2026-06頃</span> ｜ ChatForest ｜ <a href="https://chatforest.com/builders-log/microsoft-build-2026-recap-windows-agent-platform-project-polaris-copilot-workspace/" target="_blank" rel="noopener">Microsoft Build 2026 Recap: Windows, Agents, and the New MAI Models</a></li>
+      <li><span class="date">2026-07頃</span> ｜ Releasebot ｜ <a href="https://releasebot.io/updates/microsoft/microsoft-copilot" target="_blank" rel="noopener">Microsoft Copilot Updates by Microsoft - July 2026</a></li>
+      <li><span class="date">日付不明</span> ｜ 日経クロステック ｜ <a href="https://xtech.nikkei.com/atcl/nxt/column/18/03507/" target="_blank" rel="noopener">Copilot StudioでAIエージェント作成、最初の一歩</a></li>
+      <li><span class="date">2026-07頃</span> ｜ note（株式会社AIworker） ｜ <a href="https://note.com/ai__worker/n/nea2197c01480" target="_blank" rel="noopener">【2026年7月最新】Copilot Studioとは？できること・料金・作り方・企業導入の注意点を徹底解説</a></li>
+      <li><span class="date">2026年最新版</span> ｜ いいムーブ ｜ <a href="https://www.iimhs.co.jp/services/ms365/copilot-studio/copilotstudio2026.html" target="_blank" rel="noopener">Copilot Studioとは？できること・料金・使い方・導入事例を徹底解説</a></li>
+      <li><span class="date">日付不明</span> ｜ AI総合研究所 ｜ <a href="https://www.ai-souken.com/article/copilot-studio-case-studies" target="_blank" rel="noopener">Microsoft Copilot Studio導入事例！国内企業の成果と活用パターンを解説</a></li>
+      <li><span class="date">2026-05頃</span> ｜ Super Simple 365 ｜ <a href="https://supersimple365.com/whats-new-in-microsoft-365-and-copilot-may-2026/" target="_blank" rel="noopener">What's new in Microsoft 365 and Copilot? May 2026</a></li>
+      <li><span class="date">2026-06頃</span> ｜ Super Simple 365 ｜ <a href="https://supersimple365.com/whats-new-in-microsoft-365-and-copilot-june-2026/" target="_blank" rel="noopener">What's new in Microsoft 365 and Copilot? June 2026</a></li>
+      <li><span class="date">2026-08-06</span> ｜ Empowering.Cloud ｜ <a href="https://empowering.cloud/microsoft-365-ai-workplace-update-august-2026/" target="_blank" rel="noopener">Microsoft 365 Enterprise Update August 2026</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-08頃</span> ｜ candede.com ｜ <a href="https://www.candede.com/articles/microsoft-365-copilot-august-2026-updates" target="_blank" rel="noopener">Microsoft 365 Copilot Aug 2026: Massive New Update Wave</a></li>
+      <li><span class="date">日付不明</span> ｜ moatit.com ｜ <a href="https://moatit.com/microsoft-365-roadmap-2026/" target="_blank" rel="noopener">Microsoft 365 Roadmap 2026: AI-Powered Apps &amp; Collaboration Tools</a></li>
+      <li><span class="date">2026-07-29</span> ｜ Topedia Blog ｜ <a href="https://blog-en.topedia.com/2026/07/computer-use-in-the-researcher-agent-has-been-retired/" target="_blank" rel="noopener">Computer Use in the Researcher agent has been retired</a><span class="used">本文掲載</span></li>
+      <li><span class="date">日付不明</span> ｜ Data#3 ｜ <a href="https://www.data3.com/knowledge-centre/news/the-free-ride-is-over-copilot-coworks-new-payment-model/" target="_blank" rel="noopener">The free ride is over: What Copilot Cowork's new billing model means</a></li>
+      <li><span class="date">日付不明</span> ｜ PUPUWEB ｜ <a href="https://pupuweb.com/mc1393468-cowork-in-frontier-new-value-usage-based-billing/" target="_blank" rel="noopener">MC1393468 Cowork in Frontier: New Value + Usage-based Billing</a></li>
+      <li><span class="date">日付不明</span> ｜ M365 Admin（handsontek） ｜ <a href="https://m365admin.handsontek.net/cowork-frontier-new-value-usage-based-billing/" target="_blank" rel="noopener">Cowork in Frontier: New Value + Usage-based Billing</a></li>
+      <li><span class="date">日付不明</span> ｜ hbs.net ｜ <a href="https://www.hbs.net/blog/copilot-cowork-available-now" target="_blank" rel="noopener">Copilot Cowork: Credits, Costs and Admin Controls</a></li>
+      <li><span class="date">2026年版</span> ｜ The Negotiation Experts ｜ <a href="https://thenegotiationexperts.com/blog/microsoft-copilot-cowork-costs/" target="_blank" rel="noopener">Microsoft Copilot Cowork Costs: Pricing &amp; Credits Guide</a></li>
+      <li><span class="date">2026-07-30頃</span> ｜ TechDogs ｜ <a href="https://www.techdogs.com/tech-news/td-newsdesk/microsoft-confirms-2026-copilot-super-app-combining-chat-code-and-agents" target="_blank" rel="noopener">Microsoft Confirms 2026 Copilot Super App Combining Chat, Code, And Agents</a></li>
+      <li><span class="date">2026-07-30</span> ｜ Techweez ｜ <a href="https://techweez.com/2026/07/30/microsoft-unified-copilot-app-2026/" target="_blank" rel="noopener">Microsoft to Merge Copilot, GitHub Copilot, and AI Agents Into One App</a></li>
+      <li><span class="date">日付不明</span> ｜ MLQ.ai ｜ <a href="https://mlq.ai/news/microsoft-merges-consumer-and-enterprise-copilot-into-single-app-launches-paid-autopilot-agents/" target="_blank" rel="noopener">Microsoft Merges Consumer and Enterprise Copilot Into Single App</a></li>
+      <li><span class="date">2026-08-03</span> ｜ DevOps.com ｜ <a href="https://devops.com/microsoft-confirms-copilot-super-app-is-coming-this-year-and-its-about-more-than-convenience/" target="_blank" rel="noopener">Microsoft Confirms Copilot 'Super App' Is Coming This Year</a><span class="used">本文掲載</span></li>
+      <li><span class="date">日付不明</span> ｜ Analytics Insight ｜ <a href="https://www.analyticsinsight.net/news/microsoft-confirms-copilot-super-app-launch-this-year-combining-chat-coding-ai-agents" target="_blank" rel="noopener">Microsoft Confirms Copilot 'Super App' Launch this Year</a></li>
+      <li><span class="date">日付不明</span> ｜ TechJournal ｜ <a href="https://techjournal.org/microsoft-copilot-super-app" target="_blank" rel="noopener">Microsoft's Copilot 'Super App': What It Means for You</a></li>
+      <li><span class="date">日付不明</span> ｜ eWeek ｜ <a href="https://www.eweek.com/news/microsoft-copilot-super-app-ai-agents-coding/" target="_blank" rel="noopener">Microsoft Confirms Copilot 'Super App' Combining Chat, Coding and AI Agents</a></li>
+      <li><span class="date">2026-07-30</span> ｜ BigGo Finance ｜ <a href="https://finance.biggo.com/news/202607302023_Microsoft_Copilot_Super_App_Launch_Q3_2026" target="_blank" rel="noopener">Microsoft Confirms Copilot 'Super App' Launch This Quarter</a></li>
+      <li><span class="date">2026-04-06</span> ｜ Visual Studio Magazine ｜ <a href="https://visualstudiomagazine.com/articles/2026/04/06/microsoft-ships-production-ready-agent-framework-1-0-for-net-and-python.aspx" target="_blank" rel="noopener">Microsoft Ships Production-Ready Agent Framework 1.0 for .NET and Python</a></li>
+      <li><span class="date">2026年8月版</span> ｜ Uravation ｜ <a href="https://uravation.com/media/microsoft-copilot-studio-custom-ai-agent-build-guide-2026/" target="_blank" rel="noopener">Copilot Studio完全ガイド2026｜カスタムAIエージェント構築</a></li>
+    </ul>
+
+    <div class="group-title">SNS・コミュニティ — SOCIAL &amp; COMMUNITY（16件）</div>
+    <ul>
+      <li><span class="date">2026-08頃</span> ｜ YouTube ｜ <a href="https://www.youtube.com/watch?v=v7IA56HJU2E" target="_blank" rel="noopener">Inside the new agent and workflow harness | Copilot Studio Updates August 2026</a></li>
+      <li><span class="date">2026-08頃</span> ｜ YouTube ｜ <a href="https://www.youtube.com/watch?v=Kwl_vyftmn8" target="_blank" rel="noopener">Copilot Just Changed Again — August 2026</a></li>
+      <li><span class="date">日付不明</span> ｜ YouTube ｜ <a href="https://www.youtube.com/watch?v=WkqZCihgfL8" target="_blank" rel="noopener">First Look at the New Copilot Studio Feature</a></li>
+      <li><span class="date">2026-08頃</span> ｜ YouTube ｜ <a href="https://www.youtube.com/watch?v=6KoTjt6wIMc" target="_blank" rel="noopener">Building Highly Effective Business-Process Agents — Copilot Studio Updates, August 2026</a></li>
+      <li><span class="date">日付不明</span> ｜ dev.to ｜ <a href="https://dev.to/holgerimbery/comparing-copilot-studio-agent-builder-and-microsoft-copilot-studio-1ep1" target="_blank" rel="noopener">Comparing Copilot Studio, Agent Builder, and Microsoft Copilot Studio</a></li>
+      <li><span class="date">2026-08-09</span> ｜ CIAOPS Blog ｜ <a href="https://blog.ciaops.com/2026/08/09/cia-brief-20260809/" target="_blank" rel="noopener">CIA Brief 20260809</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn（Tim Ervik） ｜ <a href="https://www.linkedin.com/posts/timervik_microsoft-365-copilot-copilot-studio-agent-activity-7241471455471816704-3vjv" target="_blank" rel="noopener">Copilot Studio agent builder に関する投稿</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn（David Fortin） ｜ <a href="https://www.linkedin.com/posts/david-fortin-cpa-816b20b5_activity-7353791321574100992-ANSF" target="_blank" rel="noopener">How I Built a Copilot Agent for My LinkedIn Posts</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn Learning ｜ <a href="https://www.linkedin.com/learning/getting-started-with-autonomous-agents-in-copilot-studio-no-code-required/build-agents-in-copilot-studio" target="_blank" rel="noopener">Build agents in Copilot Studio</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn（Kent Fagan） ｜ <a href="https://www.linkedin.com/posts/kentfagan_how-to-create-an-ai-agent-in-copilot-for-activity-7417213640908517376-jDFu" target="_blank" rel="noopener">Create AI Agent in Copilot for Microsoft 365</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn Pulse ｜ <a href="https://www.linkedin.com/pulse/guide-writing-effective-copilot-studio-agent-pierre-yves-delac%C3%B4te-sdcye" target="_blank" rel="noopener">Guide to Writing Effective Copilot Studio Agent Instructions</a></li>
+      <li><span class="date">日付不明</span> ｜ LinkedIn Pulse ｜ <a href="https://www.linkedin.com/pulse/create-your-first-copilot-agent-pascal-brunner-jshye" target="_blank" rel="noopener">Create Your First Copilot Agent with Agent Builder</a></li>
+      <li><span class="date">日付不明</span> ｜ Substack ｜ <a href="https://substack.com/@agentsofcopilot" target="_blank" rel="noopener">agentsofcopilot</a></li>
+      <li><span class="date">2026-06頃</span> ｜ robquickenden.blog ｜ <a href="https://robquickenden.blog/2026/06/cowork-ga-usagebilling/" target="_blank" rel="noopener">Microsoft Cowork Pricing and Controls - what you need to know</a></li>
+      <li><span class="date">2026-06-16頃</span> ｜ Windows Forum ｜ <a href="https://windowsforum.com/threads/copilot-cowork-ga-june-16-2026-metered-agent-billing-credits-and-it-governance.426989/" target="_blank" rel="noopener">Copilot Cowork GA June 16 2026: Metered Agent Billing, Credits, and IT Governance</a></li>
+      <li><span class="date">日付不明</span> ｜ Windows Forum ｜ <a href="https://windowsforum.com/windows-news.4/microsoft-copilot-super-app-to-unite-chat-code-and-agents-in-2026.440876/" target="_blank" rel="noopener">Microsoft Copilot Super App to Unite Chat, Code and Agents in 2026</a></li>
+    </ul>
+
+    <div class="group-title">国内イベント・セミナー・講座 — JAPAN EVENTS（20件）</div>
+    <ul>
+      <li><span class="date">2026-09-29開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/w0929osakan/?rid=00" target="_blank" rel="noopener">Copilot Agent Builderハンズオンセミナー（大阪北支店）</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-18開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/0918jyousai/?rid=00" target="_blank" rel="noopener">導入時に知っておきたい！実際に操作して学ぶCopilotハンズオンセミナー（城西支店）</a></li>
+      <li><span class="date">2026-09-16開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/0916copilot/?seminar-region=hiroshima&rid=00" target="_blank" rel="noopener">実際に操作して学ぶAI活用！Copilotハンズオンセミナー（広島）</a></li>
+      <li><span class="date">2026-09-02開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/w0902minami/?rid=00" target="_blank" rel="noopener">Microsoft 365 Copilotハンズオンセミナー（南大阪支店）</a></li>
+      <li><span class="date">2026-08-26開催</span> ｜ 株式会社大塚商会 ｜ <a href="https://www.otsuka-shokai.co.jp/event/region/26/0826tama/?rid=00" target="_blank" rel="noopener">実際に操作して学ぶAI活用！Copilotハンズオンセミナー in 多摩（既出）</a></li>
+      <li><span class="date">2026-08-31/9-10/9-24開催</span> ｜ テクバン株式会社 ｜ <a href="https://www.techvan.co.jp/event/20260831_14webcopilotstudio/" target="_blank" rel="noopener">Copilot Studioで加速する業務効率化とAIエージェント活用（既出）</a></li>
+      <li><span class="date">2026-07-09開催</span> ｜ テクバン株式会社 ｜ <a href="https://www.techvan.co.jp/news/2026/06/0723_14webcopilot.html" target="_blank" rel="noopener">自社特化AIエージェント、Copilot Studioでどう作る？（労務問い合わせ編）</a></li>
+      <li><span class="date">随時開催</span> ｜ 株式会社ソフトクリエイト ｜ <a href="https://www.softcreate.co.jp/365club/workshop" target="_blank" rel="noopener">Softcreate Premium Workshop</a></li>
+      <li><span class="date">随時開催</span> ｜ 株式会社ソフトクリエイト ｜ <a href="https://www.softcreate.co.jp/seminar/detail/1158" target="_blank" rel="noopener">Copilot Studioしっかり解説～AIエージェントの基本・応用・実践事例お見せします～</a></li>
+      <li><span class="date">2026-08-26開催</span> ｜ 株式会社Beyont（旧スキルアップNeXt） ｜ <a href="https://www.skillupai.com/conference/agenticai_2026/" target="_blank" rel="noopener">Agentic AI Transformation Day 2026「Microsoft Copilot」活用の現在地と、次なるアプローチ（既出）</a></li>
+      <li><span class="date">随時開催</span> ｜ スキルアップAI ｜ <a href="https://www.skillupai.com/copilot-lowcode-training/" target="_blank" rel="noopener">Microsoft Copilot Studio 講座</a></li>
+      <li><span class="date">随時開催</span> ｜ いいムーブ ｜ <a href="https://www.iimhs.co.jp/seminar_ms365/copilot-studio-operation.html" target="_blank" rel="noopener">Copilot Studio 全社展開 運用実践マニュアル</a></li>
+      <li><span class="date">随時開催</span> ｜ いいムーブ ｜ <a href="https://www.iimhs.co.jp/seminar_ms365/copilot-gettingstarted.html" target="_blank" rel="noopener">Microsoft 365 Copilot入門セミナー</a></li>
+      <li><span class="date">随時開催</span> ｜ 株式会社インソース ｜ <a href="https://www.insource.co.jp/bup/bup_copilot.html" target="_blank" rel="noopener">Microsoft 365 Copilotの使い方研修（既出）</a></li>
+      <li><span class="date">随時開催</span> ｜ ICC（株式会社インテリジェントクラウドコンサルティング） ｜ <a href="https://www.icc-inc.co.jp/education/copilot/" target="_blank" rel="noopener">Copilot Studio研修</a></li>
+      <li><span class="date">随時更新</span> ｜ こくちーずプロ ｜ <a href="https://www.kokuchpro.com/s/q-Copilot/" target="_blank" rel="noopener">『Copilot』セミナー・勉強会・イベント一覧</a></li>
+      <li><span class="date">随時更新</span> ｜ 日本マイクロソフト ｜ <a href="https://www.microsoft.com/ja-jp/events/category/microsoft-365-copilot-training" target="_blank" rel="noopener">Microsoft 365 Copilot トレーニング</a></li>
+      <li><span class="date">随時更新</span> ｜ 日本マイクロソフト ｜ <a href="https://www.microsoft.com/ja-jp/events/top/training-days" target="_blank" rel="noopener">Microsoft Virtual Training Days</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Base ｜ <a href="https://www.microsoft.com/ja-jp/local/events/azurebase/events" target="_blank" rel="noopener">イベント／セミナー一覧</a></li>
+      <li><span class="date">随時更新</span> ｜ proskilll ｜ <a href="https://proskilll.com/seminar/copilot/" target="_blank" rel="noopener">Microsoft 365 Copilotセミナー｜おすすめのオンライン対応研修</a></li>
+    </ul>
+  </details>
+
+</div>
+
+<footer>
+  作成日時: 2026年8月10日 13:15｜自動リサーチによるニュースまとめ（Agent Builder / Copilot Studio / Copilot Cowork）<br>
+  各リンクは掲載時点で有効性を確認していますが、必ず遷移先で最新情報をご確認ください。
+</footer>
+
+</body>
+</html>
