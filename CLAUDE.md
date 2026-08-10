@@ -19,32 +19,15 @@ Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
 - **各記事カードには `data-tags` 属性でタグを付ける**（後述「タグ仕様」）
 - ニュースHTMLを追加したら `git add` → `commit` → `push`。
   GitHub Actions が自動でサイトを再ビルドして GitHub Pages へ公開する（後述「公開サイト」）
-  - **push先はプッシュ元によって異なる**（後述「自動実行のpush先について」）：
-    人が作業する場合はそのまま `main` へpushしてよい。
-    ルーティン（自動実行セッション）は `claude/` から始まるブランチへpushすること
 
 ## フォルダ構成
 ```
 copilot-agent-news/
   news/2026/08/Copilotエージェントニュース_20260810_0930.html  ← ニュース本体（原本）
   site/                 ← サイト生成スクリプト（build.mjs / lib / assets）
-  .github/workflows/    ← GitHub Pages への自動デプロイ・claude/*ブランチの自動マージ
+  .github/workflows/    ← GitHub Pages への自動デプロイ
   _site/                ← ビルド成果物。gitignore 済み・直接編集しない
 ```
-
-## 自動実行のpush先について
-Claude Code のルーティン（トリガーで自動起動されるクラウドセッション）は、既定では
-`claude/` から始まるブランチにしかpushできない（Anthropic側の安全機構。`main` への
-直接pushは既知の制限があり失敗する）。そのため：
-
-1. ルーティンは新規ブランチ `claude/news-yyyymmdd-hhmm` を作成し、そこへpushする
-2. `.github/workflows/merge-claude-branches.yml` が `claude/**` へのpushを検知し、
-   自動で `main` へマージ（マージ後はそのブランチを削除）
-3. `main` への反映後、`.github/workflows/deploy.yml` が
-   （`workflow_run` 経由で）起動し、サイトをビルドしてGitHub Pagesへ公開する
-
-人がこのフォルダを直接操作する場合はこの制限を受けないため、従来どおり `main` へ
-直接pushしてよい（`merge-claude-branches.yml` は `claude/**` にしか反応しないため無関係）。
 
 ---
 

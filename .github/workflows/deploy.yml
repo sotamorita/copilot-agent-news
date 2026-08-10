@@ -1,8 +1,5 @@
 name: Build and deploy site
 
-# main への通常pushに加えて、merge-claude-branches.yml の完了（= ルーティンが作った
-# claude/* ブランチがmainへ自動マージされたとき）でも起動する。GITHUB_TOKENによる
-# pushは他ワークフローの push トリガーを起動しないため、workflow_run で購読する。
 on:
   push:
     branches: [main]
@@ -10,9 +7,6 @@ on:
       - 'news/**'
       - 'site/**'
       - '.github/workflows/deploy.yml'
-  workflow_run:
-    workflows: ['Merge claude/* branches into main']
-    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -28,11 +22,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
 
       - uses: actions/setup-node@v4
         with:
