@@ -35,17 +35,31 @@ copilot-agent-news/
 <div class="card" data-tags="Copilot Studio,自律型エージェント,プレビュー">
 ```
 
-- `data-tags` を書き忘れても、サイト生成時にタイトル・要約からキーワード自動推定される
-  （`site/lib/tags.mjs` の `RULES`）。ただし精度が落ちるので必ず明示すること
-- 明示タグと自動推定タグはマージされる。表示は最大6個
+- `data-tags` を書き忘れても、サイト生成時にタイトル・要約からキーワード自動推定される。
+  ただし精度が落ちるので必ず明示すること
+- 明示タグと自動推定タグはマージされる。表示は最大6個、並び順は下表の順に自動でそろう
 
-## タグ語彙（この中から選ぶ。増やす場合は `site/lib/tags.mjs` にも追加）
-| 種類 | タグ |
+## 表記ゆれは自動で正規化される
+**タグの正は `site/lib/tags.mjs` の `VOCABULARY` のみ**。`data-tags` に書いた文字列は
+下表の「正規表記」に寄せてから使われるので、サイト上に表記ゆれは出ない。
+
+- 大小文字・スペース・全角半角・ハイフンの違いは無視される
+  （`copilot studio` / `CopilotStudio` / `Ｃｏｐｉｌｏｔ Ｓｔｕｄｉｏ` → すべて `Copilot Studio`）
+- 別名は正規表記に寄せられる（`Cowork` → `Copilot Cowork`、`GA` → `一般提供`、`ハンズオン` → `セミナー`）
+- **語彙にない表記は不採用**。ビルド時に警告が出るので、修正するか語彙に追加する
+
+```bash
+node site/build.mjs --tags     # 正規表記と別名の一覧を表示
+node site/build.mjs --strict   # 未登録タグがあれば非ゼロ終了（CIでは警告扱い）
+```
+
+## タグ語彙（この21種類から選ぶ。増やす場合は `site/lib/tags.mjs` の `VOCABULARY` にも追加）
+| 種類 | 正規表記（← 主な別名） |
 |---|---|
-| 製品・技術 | `Copilot Studio` / `Agent Builder` / `Copilot Cowork` / `M365 Copilot` / `Agent Framework` / `SharePoint` / `Teams` / `Power Platform` / `Azure` / `MCP` |
-| 機能・テーマ | `自律型エージェント` / `ワークフロー` / `ガバナンス` / `ライセンス` / `開発者向け` |
-| 提供状況 | `ロードマップ` / `プレビュー` / `一般提供` |
-| 情報の種類 | `セミナー` / `導入事例` / `調査レポート` |
+| 製品・技術 | `Copilot Studio` / `Agent Builder`←エージェントビルダー / `Copilot Cowork`←Cowork / `M365 Copilot`←Microsoft 365 Copilot / `Agent Framework` / `SharePoint` / `Teams` / `Power Platform`←Power Automate, Power Apps / `Azure`←Foundry / `MCP` |
+| 機能・テーマ | `自律型エージェント`←自律型 / `ワークフロー`←ハーネス / `ガバナンス`←セキュリティ, 管理者 / `ライセンス`←価格, 料金, 課金 / `開発者向け`←SDK, API, OSS |
+| 提供状況 | `ロードマップ`←Roadmap / `プレビュー`←Preview / `一般提供`←GA |
+| 情報の種類 | `セミナー`←ハンズオン, 勉強会, ウェビナー, 研修 / `導入事例`←事例 / `調査レポート`←調査 |
 
 カテゴリ（新機能／事例／イベント）はセクション見出しから自動判定されるため、タグに重ねて書かなくてよい。
 

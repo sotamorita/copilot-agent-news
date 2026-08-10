@@ -36,6 +36,16 @@ node site/build.mjs
 cd _site && python3 -m http.server 8000
 ```
 
+## タグ
+
+タグの正は [site/lib/tags.mjs](site/lib/tags.mjs) の `VOCABULARY` です。
+記事に書かれた `data-tags` は正規表記へ寄せられるため、表記ゆれはサイトに出ません。
+
+```bash
+node site/build.mjs --tags     # 正規表記と別名の一覧
+node site/build.mjs --strict   # 未登録タグがあれば非ゼロ終了
+```
+
 ## 更新フロー
 
 1. 定期実行でニュースHTMLが `yyyy/mm/` に追加される

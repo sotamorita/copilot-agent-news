@@ -29,8 +29,11 @@ jobs:
         with:
           node-version: '22'
 
+      # --strict は語彙にない data-tags があると非ゼロ終了する。
+      # 公開自体は止めたくないので警告扱いにし、Actions のログで気付けるようにする。
       - name: Build site
-        run: node site/build.mjs
+        run: node site/build.mjs --strict
+        continue-on-error: true
 
       - uses: actions/configure-pages@v5
 

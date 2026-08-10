@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 import { parseFileName, parseReport } from './lib/parse.mjs';
 import { renderArchive, renderIndex, rewriteReport } from './lib/render.mjs';
+import { CANONICAL_TAGS, GROUP_LABELS, VOCABULARY } from './lib/tags.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, '_site');
@@ -54,6 +55,44 @@ function copyDir(from, to) {
     if (entry.isDirectory()) copyDir(src, dst);
     else fs.copyFileSync(src, dst);
   }
+}
+
+/** 語彙一覧を表示する（node site/build.mjs --tags） */
+function printVocabulary() {
+  for (const [group, label] of Object.entries(GROUP_LABELS)) {
+    const tags = VOCABULARY.filter((v) => v.group === group);
+    console.log(`\n${label}`);
+    for (const v of tags) {
+      const aliases = v.aliases.length ? `  ← ${v.aliases.join(' / ')}` : '';
+      console.log(`  ${v.tag}${aliases}`);
+    }
+  }
+  console.log(`\n計 ${CANONICAL_TAGS.length} タグ`);
+}
+
+/** 語彙にない data-tags を報告する。表記ゆれはここで気付けるようにする。 */
+function reportUnknownTags(reports, strict) {
+  const rows = [];
+  for (const report of reports) {
+    for (const item of report.items) {
+      for (const u of item.unknownTags ?? []) {
+        rows.push({ file: report.sourceName, title: item.title, ...u });
+      }
+    }
+  }
+  if (!rows.length) return;
+
+  console.warn(`\n⚠ 語彙にない data-tags が ${rows.length} 件あります（サイトには載せません）`);
+  for (const r of rows) {
+    const hint = r.suggestion ? ` → 「${r.suggestion}」の誤記では？` : ' → 語彙に追加するか修正してください';
+    console.warn(`  "${r.raw}"${hint}`);
+    console.warn(`    ${r.file} / ${r.title.slice(0, 40)}`);
+    if (process.env.GITHUB_ACTIONS) {
+      console.log(`::warning title=未登録のタグ::"${r.raw}"${hint}（${r.file}）`);
+    }
+  }
+  console.warn('  正しい表記は node site/build.mjs --tags で確認できます\n');
+  if (strict) process.exitCode = 1;
 }
 
 function build() {
@@ -149,6 +188,9 @@ function build() {
 
   console.log(`ビルド完了: ${reports.length} レポート / ${allItems.length} 記事 / ${tags.length} タグ`);
   console.log(`出力先: ${path.relative(ROOT, OUT)}/`);
+
+  reportUnknownTags(reports, process.argv.includes('--strict'));
 }
 
-build();
+if (process.argv.includes('--tags')) printVocabulary();
+else build();

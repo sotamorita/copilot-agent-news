@@ -142,11 +142,20 @@ export function parseReport(html, meta) {
       const key = card.url || card.title;
       if (seen.has(key)) continue;
       seen.add(key);
+      const resolved = resolveTags(
+        card.tagAttr,
+        card.title,
+        card.summary,
+        card.source,
+        card.sourceMeta,
+        heading,
+      );
       items.push({
         ...card,
         category,
         section: heading,
-        tags: resolveTags(card.tagAttr, card.title, card.summary, card.source, card.sourceMeta, heading),
+        tags: resolved.tags,
+        unknownTags: resolved.unknown,
         report: meta.slug,
         reportLabel: meta.labelJa,
         date: meta.date,
