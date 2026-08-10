@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// yyyy/mm/ 配下のニュースHTMLから公開用サイト（_site/）を生成する。
+// news/yyyy/mm/ 配下のニュースHTMLから公開用サイト（_site/）を生成する。
 // 依存パッケージなし。node site/build.mjs で実行。
 
 import fs from 'node:fs';
@@ -11,14 +11,17 @@ import { renderArchive, renderIndex, rewriteReport } from './lib/render.mjs';
 import { CANONICAL_TAGS, GROUP_LABELS, VOCABULARY } from './lib/tags.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const NEWS_ROOT = path.join(ROOT, 'news');
 const OUT = path.join(ROOT, '_site');
 
-/** yyyy/mm/*.html を新しい順に集める。 */
+/** news/yyyy/mm/*.html を新しい順に集める。 */
 function collectReportFiles() {
   const files = [];
-  for (const year of fs.readdirSync(ROOT)) {
+  if (!fs.existsSync(NEWS_ROOT)) return files;
+
+  for (const year of fs.readdirSync(NEWS_ROOT)) {
     if (!/^\d{4}$/.test(year)) continue;
-    const yearDir = path.join(ROOT, year);
+    const yearDir = path.join(NEWS_ROOT, year);
     if (!fs.statSync(yearDir).isDirectory()) continue;
 
     for (const month of fs.readdirSync(yearDir)) {
@@ -30,7 +33,7 @@ function collectReportFiles() {
         if (!name.endsWith('.html')) continue;
         const meta = parseFileName(name);
         if (!meta) {
-          console.warn(`  ! 日時を読み取れないためスキップ: ${year}/${month}/${name}`);
+          console.warn(`  ! 日時を読み取れないためスキップ: news/${year}/${month}/${name}`);
           continue;
         }
         files.push({ abs: path.join(monthDir, name), name, meta });

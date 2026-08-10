@@ -5,7 +5,7 @@ Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
 定期収集・HTML化して蓄積するフォルダ。
 
 ## 運用ルール
-- 新規ファイルは `yyyy/mm/` 配下に格納する
+- 新規ファイルは `news/yyyy/mm/` 配下に格納する
 - ファイル名は `Copilotエージェントニュース_yyyymmdd_hhmm.html` 形式
 - 過去24時間以内の情報を優先し、前回ファイルの内容と重複するニュースは載せない
   （新規作成前に同月フォルダ内の最新ファイルを確認し、差分のみ掲載）
@@ -18,7 +18,7 @@ Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
 ## フォルダ構成
 ```
 copilot-agent-news/
-  2026/08/Copilotエージェントニュース_20260810_0930.html  ← ニュース本体（原本）
+  news/2026/08/Copilotエージェントニュース_20260810_0930.html  ← ニュース本体（原本）
   site/                 ← サイト生成スクリプト（build.mjs / lib / assets）
   .github/workflows/    ← GitHub Pages への自動デプロイ
   _site/                ← ビルド成果物。gitignore 済み・直接編集しない
@@ -67,7 +67,7 @@ node site/build.mjs --strict   # 未登録タグがあれば非ゼロ終了（CI
 
 # 公開サイト
 
-`site/build.mjs` が `yyyy/mm/*.html` を読んで `_site/` に一覧サイトを生成する（依存パッケージなし）。
+`site/build.mjs` が `news/yyyy/mm/*.html` を読んで `_site/` に一覧サイトを生成する（依存パッケージなし）。
 
 ```bash
 node site/build.mjs                       # ビルド

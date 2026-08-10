@@ -8,7 +8,7 @@ HTMLレポートとして蓄積・公開するリポジトリです。
 ## 構成
 
 ```
-2026/08/Copilotエージェントニュース_yyyymmdd_hhmm.html  ニュースレポート（原本）
+news/2026/08/Copilotエージェントニュース_yyyymmdd_hhmm.html  ニュースレポート（原本）
 site/build.mjs                                      サイト生成スクリプト
 site/lib/                                           パーサ・タグ辞書・テンプレート
 site/assets/                                        共通CSS / 検索JS
@@ -48,7 +48,7 @@ node site/build.mjs --strict   # 未登録タグがあれば非ゼロ終了
 
 ## 更新フロー
 
-1. 定期実行でニュースHTMLが `yyyy/mm/` に追加される
+1. 定期実行でニュースHTMLが `news/yyyy/mm/` に追加される
 2. `main` に push する
 3. GitHub Actions がサイトを再ビルドし、GitHub Pages へ公開する
 
