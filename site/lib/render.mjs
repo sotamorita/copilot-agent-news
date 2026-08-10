@@ -112,6 +112,24 @@ function newsCard(item, depth) {
       </article>`;
 }
 
+function renderHeroShortcuts(latest, reportCount) {
+  if (!latest) return '';
+  return `<div class="hero-shortcuts">
+    <a class="hero-card primary" href="news/${esc(latest.path)}">
+      <div class="hero-label">最新レポート ｜ LATEST</div>
+      <div class="hero-title">${esc(latest.title)}</div>
+      <div class="hero-meta">${esc(latest.labelJa)}更新・掲載 ${latest.items.length}件</div>
+      <div class="hero-cta">最新のニュースを読む ↗</div>
+    </a>
+    <a class="hero-card secondary" href="archive.html">
+      <div class="hero-label">アーカイブ ｜ ARCHIVE</div>
+      <div class="hero-title">過去のレポート一覧</div>
+      <div class="hero-meta">これまでのレポート ${reportCount}本を日付ごとに確認できます</div>
+      <div class="hero-cta">アーカイブを見る ↗</div>
+    </a>
+  </div>`;
+}
+
 export function renderIndex({ items, reports, tags, generatedAt }) {
   const latest = reports[0];
   const catChips = Object.entries(CATEGORIES)
@@ -137,6 +155,8 @@ export function renderIndex({ items, reports, tags, generatedAt }) {
 </header>
 
 <div class="container">
+
+  ${renderHeroShortcuts(latest, reports.length)}
 
   <div class="controls">
     <label for="q">記事を検索</label>
