@@ -14,24 +14,24 @@ Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
 - 収集対象ジャンルは「①新機能リリース・アップデート」「②エンタープライズ活用事例」
   「③国内の勉強会・セミナー・講座情報」の3種。①に偏らず②③も毎回能動的に検索する
   （②③は該当日に新規情報がなければ無理に掲載しなくてよいが、検索自体は毎回行う）
-- 情報源は以下を**毎回もれなく**確認したうえで網羅的に収集する。海外ソースを優先しつつ、
-  出力は必ず日本語に翻訳・要約する
-  - **公式一次情報（必須チェック項目）**：
-    - Microsoft 365 Message Center（`mc.merill.net` 等のアーカイブサイトでキーワード検索し代替可）
-    - Microsoft Copilot Studio Blog／Microsoft 365 Copilot Blog（Tech Community）
-    - Microsoft Learn の "What's new" 系ページ（Copilot Studio, M365 Copilot Release Notes,
-      Power Platform Release Plan, Copilot Studio guidance hub 等）
-    - Microsoft 365 Roadmap（`microsoft.com/microsoft-365/roadmap`）
-    - GitHub `microsoft/agent-framework` の Releases
-    - 上記は個別にURLへアクセスし、検索エンジン経由のヒットだけに頼らない
-  - **SNS（X／LinkedIn／Reddit等）— 意識的に検索すること**：
-    - 通常のWeb検索だけでなく、`site:x.com`／`site:twitter.com`／`site:linkedin.com` を付けたクエリや
-      「Copilot Studio X post」のようにSNS名を明示したクエリを複数パターン試す
-    - 主要アカウントの投稿を優先的に確認する（例：@MSPowerPlat、@Microsoft365、Satya Nadella、
-      Charles Lamanna など製品責任者・公式アカウント）
-    - Reddit は r/MicrosoftCopilotStudio、r/PowerPlatform、r/microsoft365 等の関連サブレディットを確認する
-    - SNSで有効な投稿が見つからなかった場合も、注記欄に「SNS検索を実施したが該当なし」と明記する
-      （検索を省略した扱いにしない）
+- 情報収集は**まず一般的なWeb検索（WebSearch）で広く網羅する**ことを基本とする。
+  既知の公式URLを1件ずつ順番にWebFetchで巡回する運用はしない（件数が増えて実行が遅くなる上、
+  結局は検索エンジン経由の方が抜け漏れなく拾える）。WebFetchは検索で見つかった候補記事の
+  詳細・日付を確認する用途に限定して使う。海外ソースを優先しつつ、出力は必ず日本語に翻訳・要約する
+  - 検索クエリは公式一次情報に偏らず、**「Copilotエージェント関連の機能・ニュース」を世の中から
+    広く拾う**ことを優先する。一般ニュースサイト・解説ブログ・海外メディアも積極的に対象に含める
+  - そのうえで、特に信頼度の高い公式ドメインは検索クエリに `site:` を付けるなどして優先的に
+    ヒットさせるよう意識する：
+    - techcommunity.microsoft.com（Copilot Studio Blog／Microsoft 365 Copilot Blog）
+    - learn.microsoft.com（Copilot Studio "What's new"、M365 Copilot Release Notes 等）
+    - microsoft.com/microsoft-365/roadmap（Microsoft 365 Roadmap）
+    - mc.merill.net（Microsoft 365 Message Center アーカイブ）
+    - github.com/microsoft/agent-framework/releases
+  - **SNS（X／LinkedIn／Reddit等）はベストエフォートでよい**。一般のWeb検索エンジンは
+    X/Twitterの投稿をほとんどインデックスしていないため、有効な投稿が見つからないことが
+    多い。一度検索を試みて見つからなければ、注記欄に「SNS検索を実施したが該当なし」と
+    記載すれば十分で、複数アカウント・複数クエリパターンでの深追いは不要
+    （SNSより上記の幅広いWeb検索でのニュース網羅性を優先する）
 - 各ニュース要約は1〜2行程度に留め、記載順は「出典・日時 → タイトル → 要約 → 元記事リンク」。
   詳細は元ソースリンクで確認する前提とする
 - リンク切れ・古いURLは掲載しない。検索時点で有効な最新URLのみ使用する
