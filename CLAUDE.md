@@ -11,8 +11,24 @@ Agent Builder / Copilot Studio / Copilot Cowork 関連の最新ニュースを
   （拡大した場合はその旨を注記欄に明記する）
 - 重複排除は**直近1週間分**の既存ファイルすべてを確認し、重複するニュースは載せない
   （新規作成前に同月フォルダ内の直近1週間分のファイルを確認。月をまたぐ場合は前月分も確認し、差分のみ掲載）
-- 情報源は公式情報（Microsoft公式ブログ・リリースノート・Docs）に加え、SNS（X／LinkedIn／Reddit等）も
-  含めて網羅的に収集する。海外ソースを優先しつつ、出力は必ず日本語に翻訳・要約する
+- 情報源は以下を**毎回もれなく**確認したうえで網羅的に収集する。海外ソースを優先しつつ、
+  出力は必ず日本語に翻訳・要約する
+  - **公式一次情報（必須チェック項目）**：
+    - Microsoft 365 Message Center（`mc.merill.net` 等のアーカイブサイトでキーワード検索し代替可）
+    - Microsoft Copilot Studio Blog／Microsoft 365 Copilot Blog（Tech Community）
+    - Microsoft Learn の "What's new" 系ページ（Copilot Studio, M365 Copilot Release Notes,
+      Power Platform Release Plan, Copilot Studio guidance hub 等）
+    - Microsoft 365 Roadmap（`microsoft.com/microsoft-365/roadmap`）
+    - GitHub `microsoft/agent-framework` の Releases
+    - 上記は個別にURLへアクセスし、検索エンジン経由のヒットだけに頼らない
+  - **SNS（X／LinkedIn／Reddit等）— 意識的に検索すること**：
+    - 通常のWeb検索だけでなく、`site:x.com`／`site:twitter.com`／`site:linkedin.com` を付けたクエリや
+      「Copilot Studio X post」のようにSNS名を明示したクエリを複数パターン試す
+    - 主要アカウントの投稿を優先的に確認する（例：@MSPowerPlat、@Microsoft365、Satya Nadella、
+      Charles Lamanna など製品責任者・公式アカウント）
+    - Reddit は r/MicrosoftCopilotStudio、r/PowerPlatform、r/microsoft365 等の関連サブレディットを確認する
+    - SNSで有効な投稿が見つからなかった場合も、注記欄に「SNS検索を実施したが該当なし」と明記する
+      （検索を省略した扱いにしない）
 - 各ニュース要約は1〜2行程度に留め、記載順は「出典・日時 → タイトル → 要約 → 元記事リンク」。
   詳細は元ソースリンクで確認する前提とする
 - リンク切れ・古いURLは掲載しない。検索時点で有効な最新URLのみ使用する
