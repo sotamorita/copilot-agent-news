@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilotエージェントニュース - 2026年9月5日（18:05更新）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-main: #F7F6F3;
+  --bg-card: #FFFFFF;
+  --text-main: #16181D;
+  --text-sub: #6E7178;
+  --border: #E3E1DC;
+  --accent: #0F2A4A;
+  --category-update: #0F2A4A;
+  --category-case: #1E5C3A;
+  --category-event: #8A4B08;
+  --notice-bg: #FDF8EC;
+  --notice-text: #7A4508;
+  --font-sans: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Meiryo", sans-serif;
+  --font-num: "Inter", "SF Mono", "Roboto Mono", monospace;
+}
+
+* {
+  font-family: var(--font-sans);
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  margin: 0;
+  padding: 20px;
+  font-feature-settings: "palt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
+  line-break: strict;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+}
+
+header .inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px 0;
+}
+
+.lead {
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--text-sub);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.notice {
+  background: var(--notice-bg);
+  border: 1px solid rgba(122, 69, 8, 0.1);
+  border-left: 3px solid var(--notice-text);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--notice-text);
+}
+
+.category {
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  letter-spacing: -0.01em;
+  font-feature-settings: "palt" 1;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h2 .en {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.card .meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-sub);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-num);
+}
+
+.badge {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.55;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+  font-feature-settings: "palt" 1;
+}
+
+.card h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.card h3 a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.card p {
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.9;
+  margin: 0 0 16px 0;
+}
+
+.card code {
+  background: rgba(15, 42, 74, 0.05);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "SF Mono", "Roboto Mono", monospace;
+  font-size: 13.5px;
+}
+
+.link-row {
+  margin-top: 16px;
+}
+
+.link-row a {
+  display: inline-block;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.link-row a:hover {
+  text-decoration: underline;
+}
+
+details.sources {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-card);
+  margin-top: 48px;
+}
+
+details.sources summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent);
+  list-style: none;
+  user-select: none;
+}
+
+details.sources summary::-webkit-details-marker {
+  display: none;
+}
+
+details.sources[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+details.sources .group-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-sub);
+  padding: 16px 18px 6px;
+  margin-top: 0;
+}
+
+details.sources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+details.sources li {
+  font-size: 12.5px;
+  line-height: 1.7;
+  font-weight: 400;
+  padding: 8px 18px;
+  border-bottom: 1px solid rgba(227, 225, 220, 0.5);
+}
+
+details.sources li:last-child {
+  border-bottom: none;
+}
+
+details.sources .date {
+  color: var(--text-sub);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-num);
+}
+
+details.sources a {
+  color: var(--accent);
+  word-break: break-all;
+  text-decoration: none;
+}
+
+details.sources a:hover {
+  text-decoration: underline;
+}
+
+details.sources .used {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--text-sub);
+  margin-left: 8px;
+}
+
+footer {
+  max-width: 720px;
+  margin: 60px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-sub);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>Copilotエージェントニュース</h1>
+    <p class="lead">Agent Builder / Copilot Studio / Copilot Cowork 最新動向｜2026年9月5日 18:05時点</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    直前レポート（9月4日07:23作成）から約35時間後の実行のため、対象期間は過去24時間を基本としつつ、Microsoft 365 Message Center Archive（mc.merill.net）を再精査した結果、9月1日・9月2日付でCopilot Studio関連の新規メッセージ4件（RM570433、RM570434、RM570435、RM569474）が、直前までのレポートでは未掲載であったことを確認したため、対象期間を過去5日程度まで拡大して掲載しました（既存レポート8月10日〜9月4日作成分と照合し、いずれも重複しないことを確認済み）。①最新機能リリース・アップデートは、上記Message Center 4件に加え、Microsoft Community Hub（techcommunity.microsoft.com）でOpenAI GPT-6 AstraモデルがCopilot CoworkおよびCopilot Studioのモデルピッカーに追加された発表（9月4日）、mc.merill.netでCopilot Cowork関連の新規メッセージ（MC1465772、9月2日）を確認し、合計6件を掲載しました。あわせてGitHub（microsoft/agent-framework、python-1.17.0以降新規リリースなし）、Copilot Studio「What's new」「Copilot Studio Blog」（新規投稿なし）、Copilot Cowork「モデル一覧」ページ（8月26日更新時点でGPT-6 Astra未掲載）も確認しています。②エンタープライズ活用事例は日英で能動的に検索しましたが、公開日が特定できる対象期間内の新規事例発表は確認できませんでした。③国内の勉強会・セミナーも各社の既出／通年シリーズを再確認しましたが、新規シリーズの追加は確認できませんでした。SNS（X）もベストエフォートで検索しましたが、日付が特定できる有効な新規投稿は見つかりませんでした。
+  </div>
+
+  <section class="category" id="updates">
+    <h2>① 最新機能リリース・アップデート<span class="en">Product Updates</span></h2>
+
+    <div class="card" data-tags="Copilot Studio,Copilot Cowork,開発者向け">
+      <div class="meta"><span class="badge">Microsoft</span>Copilot Studio／Copilot Cowork／2026年9月4日</div>
+      <h3><a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/available-today-openai-gpt-6-astra-in-microsoft-copilot/4552808" target="_blank" rel="noopener">OpenAIの新モデル「GPT-6 Astra」、Copilot CoworkとCopilot Studioのモデルピッカーに追加</a></h3>
+      <p>複雑な計画立案や複数アプリをまたぐ実行タスクに強い最新フロンティアモデルが、両製品のモデル選択肢として順次ロールアウト開始。対象はCopilot Pro+/Max/Business/Enterprise等で、展開は段階的。管理者はモデルポリシーで利用可否を制御できる。</p>
+      <div class="link-row"><a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/available-today-openai-gpt-6-astra-in-microsoft-copilot/4552808" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card" data-tags="Copilot Studio,ガバナンス,一般提供">
+      <div class="meta"><span class="badge">Message Center</span>Copilot Studio／2026年9月1日</div>
+      <h3><a href="https://mc.merill.net/message/RM570434" target="_blank" rel="noopener">Copilot Studio、ツール呼び出しに人による承認を必須化できる機能を追加</a></h3>
+      <p>ツール単位・エージェント単位のトグルで、送金やチケットクローズ等の重要操作をエージェントの判断に関わらず一時停止し、Teams等のチャット上でユーザーが承認・今回のみ承認・拒否を選択できるようになる。2026年9月に一般提供予定。</p>
+      <div class="link-row"><a href="https://mc.merill.net/message/RM570434" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card" data-tags="Copilot Studio,M365 Copilot,一般提供">
+      <div class="meta"><span class="badge">Message Center</span>Copilot Studio／2026年9月1日</div>
+      <h3><a href="https://mc.merill.net/message/RM570435" target="_blank" rel="noopener">Copilot Studioエージェント、Microsoft 365 Copilot上での表示・応答体験を標準Copilot Chatに近づける改善</a></h3>
+      <p>書式や思考過程の表示統一、応答ストリーミングの高速化、再開・リトライ、音声入力対応、ツール実行のクリック可能な引用表示などを盛り込み、体験の一貫性を高める。2026年9月に一般提供予定。</p>
+      <div class="link-row"><a href="https://mc.merill.net/message/RM570435" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card" data-tags="Copilot Studio,開発者向け,プレビュー">
+      <div class="meta"><span class="badge">Message Center</span>Copilot Studio／2026年9月2日</div>
+      <h3><a href="https://mc.merill.net/message/RM569474" target="_blank" rel="noopener">Copilot Studio、「アプリ・意図ファースト」のエージェント作成体験を導入へ</a></h3>
+      <p>ゼロから作る従来方式に代えて、まず対象アプリを選び、そのアプリで実行させたい機能を定義する流れに変更。ツールとナレッジの管理も1画面に集約し、設定の見通しを良くする。2026年10月に一般提供予定。</p>
+      <div class="link-row"><a href="https://mc.merill.net/message/RM569474" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card" data-tags="Copilot Studio,MCP,プレビュー">
+      <div class="meta"><span class="badge">Message Center</span>Copilot Studio／2026年9月2日</div>
+      <h3><a href="https://mc.merill.net/message/RM570433" target="_blank" rel="noopener">Copilot Studioエージェント、MCP Apps対応でリッチな対話型UIを会話内に表示可能に</a></h3>
+      <p>Model Context Protocolの拡張であるMCP Apps対応サーバーのツールを呼び出すと、並び替え可能な表やデータ探索UIを画面遷移なく会話内に描画できるようになる。非対応環境向けにテキスト代替表示も用意。2026年10月プレビュー、11月に一般提供予定。</p>
+      <div class="link-row"><a href="https://mc.merill.net/message/RM570433" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+
+    <div class="card" data-tags="Copilot Cowork,M365 Copilot">
+      <div class="meta"><span class="badge">Message Center</span>Copilot Cowork／2026年9月2日</div>
+      <h3><a href="https://mc.merill.net/message/MC1465772" target="_blank" rel="noopener">Microsoft 365 Copilot Chatに「Coworkのおすすめ」機能が登場</a></h3>
+      <p>Copilot ChatがCoworkでの対応が適切なタスクを検知すると案内を表示し、「Coworkを試す」を選ぶと直前のプロンプトが編集可能な下書きとしてCoworkに引き継がれる。自動実行はされず、管理者操作は不要。2026年9月上旬から10月にかけて順次展開。</p>
+      <div class="link-row"><a href="https://mc.merill.net/message/MC1465772" target="_blank" rel="noopener">元記事を読む ↗</a></div>
+    </div>
+  </section>
+
+  <details class="sources">
+    <summary>▸ 今回の検索でヒットした全ソース一覧（34件）</summary>
+
+    <div class="group-title">公式情報 — OFFICIAL（12件）</div>
+    <ul>
+      <li><span class="date">2026-09-04</span> ｜ Microsoft Community Hub ｜ <a href="https://techcommunity.microsoft.com/blog/microsoft365copilotblog/available-today-openai-gpt-6-astra-in-microsoft-copilot/4552808" target="_blank" rel="noopener">Available today: OpenAI GPT-6 Astra in Microsoft Copilot</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-02</span> ｜ Microsoft 365 Message Center Archive ｜ <a href="https://mc.merill.net/message/RM570433" target="_blank" rel="noopener">RM570433 - Deliver rich interactive app experiences in Copilot Studio agents</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-01</span> ｜ Microsoft 365 Message Center Archive ｜ <a href="https://mc.merill.net/message/RM570434" target="_blank" rel="noopener">RM570434 - Enabling makers to require human approval for tool calls</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-01</span> ｜ Microsoft 365 Message Center Archive ｜ <a href="https://mc.merill.net/message/RM570435" target="_blank" rel="noopener">RM570435 - Streamlining experiences from Copilot Studio Agents in Microsoft 365 Copilot</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-02</span> ｜ Microsoft 365 Message Center Archive ｜ <a href="https://mc.merill.net/message/RM569474" target="_blank" rel="noopener">RM569474 - Introducing an App- and Intent-First Agent Creation Experience</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-02</span> ｜ Microsoft 365 Message Center Archive ｜ <a href="https://mc.merill.net/message/MC1465772" target="_blank" rel="noopener">MC1465772 - Discover Cowork recommendations in Microsoft 365 Copilot Chat</a><span class="used">本文掲載</span></li>
+      <li><span class="date">2026-09-03（再確認）</span> ｜ Microsoft Azure Blog ｜ <a href="https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/" target="_blank" rel="noopener">GPT-6 Astra: Frontier intelligence for work, now available in Microsoft Foundry（Foundry向けGAで対象3製品への言及なしのため不採用）</a></li>
+      <li><span class="date">直近更新2026-08-26（再確認）</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-models" target="_blank" rel="noopener">Choose a model for Copilot Cowork（この更新時点ではGPT-6 Astra未掲載を確認）</a></li>
+      <li><span class="date">直近更新2026-08-20（再確認）</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new" target="_blank" rel="noopener">What's new in Copilot Studio（新規セクション追加なしを確認）</a></li>
+      <li><span class="date">随時更新（再確認）</span> ｜ Microsoft Community Hub ｜ <a href="https://techcommunity.microsoft.com/category/microsoft365copilot/blog/copilot-studio-blog" target="_blank" rel="noopener">Copilot Studio Blog 一覧（新規投稿なしを確認）</a></li>
+      <li><span class="date">随時更新（再確認）</span> ｜ GitHub（microsoft/agent-framework） ｜ <a href="https://github.com/microsoft/agent-framework/releases" target="_blank" rel="noopener">Releases 一覧（python-1.17.0／dotnet-1.20.0が最新で既出、以降新規リリースなしを確認）</a></li>
+      <li><span class="date">随時更新（再確認）</span> ｜ Microsoft Learn ｜ <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder" target="_blank" rel="noopener">Agent Builder in Microsoft 365 Copilot（日付が特定できる新規更新なしを確認）</a></li>
+    </ul>
+
+    <div class="group-title">ニュース・解説記事 — NEWS &amp; ANALYSIS（12件）</div>
+    <ul>
+      <li><span class="date">2026-09-04</span> ｜ futurework.blog ｜ <a href="https://futurework.blog/2026/09/04/gpt-6-astra-in-microsoft-foundry/" target="_blank" rel="noopener">GPT-6 Astra in Microsoft Foundry（参考・裏付け用）</a></li>
+      <li><span class="date">2026-09-04</span> ｜ Neowin ｜ <a href="https://www.neowin.net/news/openai-rolls-out-gpt-6-astra-across-chatgpt-microsoft-365-and-github-copilot/" target="_blank" rel="noopener">OpenAI rolls out GPT-6 Astra across ChatGPT, Microsoft 365, and GitHub Copilot（本文の日付・内容裏付けに使用、直接取得は403のため検索結果の引用で確認）</a></li>
+      <li><span class="date">2026-09-04</span> ｜ winbuzzer.com ｜ <a href="https://winbuzzer.com/2026/09/04/gpt-6-astra-arrives-with-major-gains-staged-access-and-new-questions-about-its-benchmarks-xcxwbn/" target="_blank" rel="noopener">GPT-6 Astra Arrives With Major Gains, Staged Access（参考）</a></li>
+      <li><span class="date">2026-09-04</span> ｜ GitHub Changelog ｜ <a href="https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot/" target="_blank" rel="noopener">GPT-6 Astra is generally available in GitHub Copilot（対象3製品外だが日付の裏付けに使用）</a></li>
+      <li><span class="date">2026-09-02</span> ｜ M365 Admin（handsontek.net） ｜ <a href="https://m365admin.handsontek.net/discover-cowork-recommendations-microsoft-365-copilot-chat/" target="_blank" rel="noopener">Discover Cowork recommendations in Microsoft 365 Copilot Chat（MC1465772の解説記事）</a></li>
+      <li><span class="date">2026-04-28（対象期間外）</span> ｜ CX Today ｜ <a href="https://www.cxtoday.com/contact-center/copilot-studio-real-time-voice-agents-dynamics-365-contact-center/" target="_blank" rel="noopener">Copilot Studio Launches Realtime Voice Agents for Dynamics 365 Contact Center（公開日が対象期間外のため不採用）</a></li>
+      <li><span class="date">2026-03-09（既出・対象期間外）</span> ｜ Yahoo Finance ｜ <a href="https://finance.yahoo.com/news/microsoft-and-anthropic-team-up-to-bring-claude-cowork-to-microsoft-365-130001836.html" target="_blank" rel="noopener">Microsoft and Anthropic team up to bring Claude Cowork to Microsoft 365（既出のため不採用）</a></li>
+      <li><span class="date">日付不明</span> ｜ office-watch.com ｜ <a href="https://office-watch.com/2026/chatgpt-images-2-0-copilot-image-generator/" target="_blank" rel="noopener">ChatGPT Images 2.0: New AI Image Generator in Copilot（Cowork固有の新規性・日付が確認できず不採用）</a></li>
+      <li><span class="date">随時更新</span> ｜ Microsoft Copilot Blog ｜ <a href="https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/6-core-capabilities-to-scale-agent-adoption-in-2026/" target="_blank" rel="noopener">6 core capabilities to scale agent adoption in 2026（既出トピックの解説記事）</a></li>
+      <li><span class="date">随時更新</span> ｜ EPC Group ｜ <a href="https://www.epcgroup.net/blog/microsoft-copilot-agents-complete-enterprise-guide-2026" target="_blank" rel="noopener">Copilot Agents 2026: 9 Patterns That Actually Work in Production（一般解説記事のためニュース性なし）</a></li>
+      <li><span class="date">随時更新</span> ｜ DigitalDefynd ｜ <a href="https://digitaldefynd.com/IQ/top-copilot-ai-business-case-studies/" target="_blank" rel="noopener">Top 10 Copilot AI Business Case Studies（既出企業のまとめ記事）</a></li>
+      <li><span class="date">随時更新</span> ｜ office365itpros.com ｜ <a href="https://office365itpros.com/2026/09/04/microsoft-copilot-in-2026/" target="_blank" rel="noopener">Microsoft Copilot Implementation To Dos in Late 2026（総括記事・個別ニュース性なし）</a></li>
+    </ul>
+
+    <div class="group-title">SNS・コミュニティ — SOCIAL &amp; COMMUNITY（0件）</div>
+    <ul>
+      <li><span class="date">検索実施</span> ｜ 該当なし ｜ X（x.com）でCopilot Studio／Agent Builder／Copilot Cowork関連を検索したが、日付が特定できる有効な新規投稿は確認できなかった</li>
+    </ul>
+
+    <div class="group-title">国内関連記事 — JAPAN（9件）</div>
+    <ul>
+      <li><span class="date">9/9・9/16・9/17開催（既出シリーズ・再確認）</span> ｜ 株式会社ソフトクリエイト ｜ <a href="https://www.softcreate.co.jp/365club/workshop" target="_blank" rel="noopener">Softcreate Premium Workshop（既出シリーズのため不採用）</a></li>
+      <li><span class="date">9/9開催（既出・再確認）</span> ｜ 株式会社インソース ｜ <a href="https://www.insource.co.jp/bup/bup_copilot.html" target="_blank" rel="noopener">Microsoft 365 Copilotの使い方研修（既出のため不採用）</a></li>
+      <li><span class="date">随時更新（再確認）</span> ｜ こくちーずプロ ｜ <a href="https://www.kokuchpro.com/s/q-Copilot/" target="_blank" rel="noopener">『Copilot』セミナー・勉強会・イベント一覧（新規の日程追加なしを確認）</a></li>
+      <li><span class="date">随時開催（通年）</span> ｜ dx-pro（リソシア） ｜ <a href="https://dx-pro.resocia.jp/seminar/copilot-studio" target="_blank" rel="noopener">AIチャットボット開発ツール「Microsoft Copilot Studio」とは（通年提供セミナー）</a></li>
+      <li><span class="date">2026年8月時点（解説記事）</span> ｜ note（株式会社AIworker） ｜ <a href="https://note.com/ai__worker/n/ne99ed9ec3566" target="_blank" rel="noopener">Copilot Studio導入で失敗しない要件定義（一般解説記事のため不採用）</a></li>
+      <li><span class="date">2026年最新版（解説記事）</span> ｜ IIMヒューマン・ソリューション株式会社 ｜ <a href="https://www.iimhs.co.jp/services/ms365/copilot-studio/copilotstudio2026.html" target="_blank" rel="noopener">Copilot Studioとは？できること・料金・導入事例（一般解説記事のため不採用）</a></li>
+      <li><span class="date">2026年8月（解説記事）</span> ｜ 株式会社Uravation ｜ <a href="https://uravation.com/media/microsoft-copilot-studio-complete-guide-2026/" target="_blank" rel="noopener">Copilot Studioとは｜料金・ライセンス・導入判断（一般解説記事のため不採用）</a></li>
+      <li><span class="date">2026年8月最新（解説記事）</span> ｜ genai-ai.co.jp ｜ <a href="https://genai-ai.co.jp/ai-kanri/blog/cc-copilot-studio-guide/" target="_blank" rel="noopener">Microsoft Copilot Studioとは？料金・使い方・活用事例（既出内容中心のため不採用）</a></li>
+      <li><span class="date">随時更新（解説記事）</span> ｜ Qiita ｜ <a href="https://qiita.com/carol0226/items/eeaca302b423146184f9" target="_blank" rel="noopener">【これを読めばOK】Copilot Studio のはじめかた（一般解説記事のため不採用）</a></li>
+    </ul>
+  </details>
+
+</div>
+
+<footer>
+  作成日時: 2026年9月5日 18:05｜自動リサーチによるニュースまとめ（Agent Builder / Copilot Studio / Copilot Cowork）<br>
+  各リンクは掲載時点で有効性を確認していますが、必ず遷移先で最新情報をご確認ください。
+</footer>
+
+</body>
+</html>
